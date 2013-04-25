@@ -203,7 +203,7 @@
         var xhr = new XMLHttpRequest();
         var parts = getParts(docId);
         var url = priv.xwikiurl + '/bin/download/' + parts.space +
-            "/" + parts.page + "/" + fileName;
+            "/" + parts.page + "/" + fileName + '?cb=' + Math.random();
         xhr.open('GET', url, true);
         if (priv.useBlobs) {
             xhr.responseType = 'blob';
