@@ -3,6 +3,7 @@
   var paths = {
       md5: "$doc.getAttachmentURL('md5.js')",
       jio: "$doc.getAttachmentURL('jio.js')",
+      xJIO: "$doc.getAttachmentURL('xwikistorage.js')",
       renderjs: "$doc.getAttachmentURL('renderjs.js')",
   };
   for (var path in paths) { paths[path] = paths[path].replace(/\.js$/, ''); }

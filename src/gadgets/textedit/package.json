@@ -1,0 +1,24 @@
+{
+    "author": "Caleb James DeLisle",
+    "name": "textedit",
+    "description": "Example RenderJs/JIO Application",
+    "version": "0.1.0",
+    "repository": {
+        "url": "https://github.com/cjdelisle/resilience-textedit.git",
+        "type": "git"
+    },
+    "main": "./index",
+    "devDependencies": {
+    },
+    "__IGNORE__engines": {
+        "node": "*"
+    },
+    "scripts": {
+        "test": "node test/run.js"
+    },
+    "resilience": {
+        "mimeTypes": {
+            "text/plain":["edit"]
+        }
+    }
+}
