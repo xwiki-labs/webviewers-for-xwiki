@@ -13,7 +13,6 @@ pack.setExtensionId("org.xwiki.contrib:xwiki-contrib-resilience");
 ;(function() {
     var dir = "src/xwiki/Resilience/WebHome/";
     var doc = new XWiki.model.XWikiDoc(["Resilience","WebHome"]);
-    //doc.setContent(XWiki.Tools.contentFromFile(dir + "content.xwiki21"));
     doc.setTitle("Resilience Gadget Loader");
 
     var obj = new XWiki.model.JavaScriptExtension();
@@ -76,7 +75,7 @@ nThen(function(waitFor) {
 }).nThen(function(waitFor) {
 
     doc = new XWiki.model.XWikiDoc(["Resilience","Code"]);
-    doc.setContent(XWiki.Tools.contentFromFile("src/xwiki/Resilience/Code/content.xwiki21"));
+    doc.setContent(XWiki.Tools.contentFromFile("src/xwiki/Resilience/Code/content.groovy"));
     pack.addDocument(doc);
 
 
