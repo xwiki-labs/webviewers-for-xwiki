@@ -17,8 +17,8 @@ module.exports = function (gadgetPath, callback) {
         process.chdir(gadgetPath);
         file.add('.', function () {
             file.done();
+            process.chdir(lastdir);
             callback(outName);
         });
-        process.chdir(lastdir);
     });
 };

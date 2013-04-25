@@ -11,7 +11,7 @@ o.set('contentType', 'No content');
 o.set('code',
     '{{velocity}}\n' +
       '#set ($at = $doc.getAttachment($xcontext.macro.params.tar))\n' +
-      '#set ($d = $xwiki.getDocument("Main.WebHome"))\n' +
+      '#set ($d = $xwiki.getDocument("Resilience.Gadgets"))\n' +
       '#set ($m = $at.getMimeType())\n' +
       '#set ($a = "edit")\n' +
       '#set ($gadget = $!xwiki.parseGroovyFromPage("Resilience.MacroCode").run($xcontext, $d, $m, $a))\n' +

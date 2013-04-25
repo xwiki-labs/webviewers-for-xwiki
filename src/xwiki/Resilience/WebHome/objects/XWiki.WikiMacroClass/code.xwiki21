@@ -1,0 +1,18 @@
+{{velocity}}
+#set ($at = $doc.getAttachment($xcontext.macro.params.tar))
+#set ($d = $xwiki.getDocument("Resilience.Gadgets"))
+#set ($m = $at.getMimeType())
+#set ($a = "edit")
+#set ($gadget = $!xwiki.parseGroovyFromPage("Resilience.Code").run($xcontext, $d, $m, $a))
+#if ("" != $!gadget)
+
+{{html}}
+<div id="$mathtool.getRandom().toString().replaceAll("0\.", "gadget-")"
+data-gadget="$gadget"
+data-gadget-property='{"jioAttach":{"_id":"$doc.getFullName().replaceAll("\.", "/")","_attachment":"$at.getFilename()"}}'
+/>
+{{/html}}
+
+$xwiki.jsx.use("Resilience.WebHome")##
+#end
+{{/velocity}}
