@@ -1,0 +1,24 @@
+{{velocity}}
+#set ($a = "edit")
+##
+#set ($at = $!doc.getAttachment($xcontext.macro.params.tar))
+#set ($as = "$!xcontext.macro.params.as")
+#set ($d = $xwiki.getDocument("Resilience.Gadgets"))
+#if("" == $!as)
+  #set ($as = $at.getFilename().replaceAll('^.*\.', ''))
+#end
+#set ($gadget = $!xwiki.parseGroovyFromPage("Resilience.Code").run($xcontext, $d, $as, $a))
+#set ($jioDocName = $doc.getFullName().replaceAll("\.", "/"))
+##
+#if ("" != $!gadget)
+  {{html}}
+  <div id="$mathtool.getRandom().toString().replaceAll("0\.", "gadget-")"
+       data-gadget="$gadget"
+       data-gadget-property='{"jioAttach":{"_id":"$jioDocName","_attachment":"$at.getFilename()"},"action":"$a"}'
+  />
+  {{/html}}
+  $xwiki.jsx.use("Resilience.WebHome")##
+#else
+  {{error}}No gadget found for doing "$a" action on filetype ".$as"{{/error}}
+#end
+{{/velocity}}

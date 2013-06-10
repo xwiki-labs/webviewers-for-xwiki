@@ -959,7 +959,7 @@
       for (var k in config) {
         if (conf[k] === undefined) { conf[k] = config[k]; }
       }
-      RenderJs = RjsFunction(conf, jQuery, jIO);
+      window.RenderJs = RenderJs = RjsFunction(conf, jQuery, jIO);
       createPrototypes(RenderJs);
       return RenderJs;
     });

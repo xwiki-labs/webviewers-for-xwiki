@@ -1,27 +1,38 @@
 <html>
-  <head>
-    <script>
-require(['jquery', 'xJIO', 'renderjs'], function($, JIO, RenderJs) {
-    var props = JSON.parse($('#text-editor').parent().attr('data-gadget-property'));
-    var att = props.jioAttach;
-    JIO.getAttachment(att, function (err, response) {
-        if (err) { throw Error(err); }
-        $('#text-editor').val(response);
-    });
+<head>
+<script>
+require(['jquery', 'jio'], function($, JIO) {
+  var props = JSON.parse($('#text-editor').parent().attr('data-gadget-property'));
+  var ta = $('#text-editor-textarea');
+  ta.attr('rows', (props.rows || '25'));
+  ta.attr('cols', (props.columns || '80'));
+
+  var att = props.jioAttach;
+  var fr = new FileReader();
+  fr.onload = function(e) { ta.val(e.target.result); };
+  JIO.getAttachment(att, function (err, response) {
+    if (err) { throw Error(err); }
+    fr.readAsText(response);
+  });
+
+  if (props.action === 'edit') {
+    $('#text-editor').append('<input id="text-editor-save" type="button" value="Save" /'+'>');
     $('#text-editor-save').click(function(ev) {
-        ev.stopPropagation();
-        att._data = $('#text-editor').val();
-        att._mimetype = 'text/plain';
-        JIO.putAttachment(att, function (err, response) {
-            if (err) { throw Error(err); }
-            console.log(response);
-        });
+      ev.stopPropagation();
+      att._data = $('#text-editor-textarea').val();
+      att._mimetype = 'text/plain';
+      JIO.putAttachment(att, function (err, response) {
+        if (err) { throw Error(err); }
+        console.log(response);
+      });
     });
+  }
 });
-    </script>
-  </head>
-  <body>
-    <textarea id="text-editor"></textarea>
-    <input id="text-editor-save" type="button" value="Save" />
-  </body>
+</script>
+</head>
+<body>
+<div id="text-editor">
+<textarea id="text-editor-textarea"></textarea>
+</div>
+</body>
 </html>

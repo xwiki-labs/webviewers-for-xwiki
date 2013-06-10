@@ -1,5 +1,7 @@
 var XWiki = require('../../xwiki-tools/index');
 var nThen = require('nthen');
+var BuildGadget = require('./buildgadget');
+var Fs = require('fs');
 
 //---------------------- Create XWiki Package ----------------------//
 
@@ -15,21 +17,10 @@ pack.setExtensionId("org.xwiki.contrib:xwiki-contrib-resilience");
     var doc = new XWiki.model.XWikiDoc(["Resilience","WebHome"]);
     doc.setTitle("Resilience Gadget Loader");
 
-    var obj = new XWiki.model.JavaScriptExtension();
+    var obj = new XWiki.model.classes.JavaScriptExtension();
     obj.setCode(XWiki.Tools.contentFromFile(dir + "objects/XWiki.JavaScriptExtension/code.js"));
-    doc.addXObject(obj);
-
-    // {{edit tar="hello.txt"/}}
-    obj = new XWiki.model.WikiMacroClass();
-    obj.setCode(XWiki.Tools.contentFromFile(dir + "objects/XWiki.WikiMacroClass/code.xwiki21"));
-    obj.setDefaultCategory("resilience");
-    obj.setId("edit");
-    obj.setName("edit");
-    doc.addXObject(obj);
-
-    obj = new XWiki.model.WikiMacroParameterClass();
-    obj.setName("tar");
-    obj.setMandatory(1);
+    obj.setParse(true);
+    obj.setUse('always');
     doc.addXObject(obj);
 
     doc.addAttachment(dir + "attachments/renderjs.js");
@@ -38,6 +29,30 @@ pack.setExtensionId("org.xwiki.contrib:xwiki-contrib-resilience");
     doc.addAttachment(dir + "attachments/xwikistorage.js");
     pack.addDocument(doc);
 })();
+
+// {{edit tar="hello.txt" /}}
+// {{view tar="hello.txt" /}}
+var dir = "src/action-macros/";
+Fs.readdirSync(dir).forEach(function(file) {
+    var act = file.replace(/.*\/|\..*/, '');
+
+    var doc =
+        new XWiki.model.XWikiDoc(["Resilience", act[0].toUpperCase()+act.substring(1)+"Macro"]);
+    doc.setTitle("Resilience " + act + " macro");
+
+    var obj = new XWiki.model.classes.WikiMacroClass();
+    obj.setCode(XWiki.Tools.contentFromFile(dir+file));
+    obj.setDefaultCategory("resilience");
+    obj.setId(act);
+    obj.setName(act);
+    doc.addXObject(obj);
+
+    var WikiMacroParameterClass = XWiki.model.classes.WikiMacroParameterClass;
+    doc.addXObject(new WikiMacroParameterClass().setName("tar").setMandatory(true));
+    doc.addXObject(new WikiMacroParameterClass().setName("as").setMandatory(false));
+
+    pack.addDocument(doc);
+});
 
 
 //---------------------- Resilience.Demo ----------------------//
@@ -59,14 +74,17 @@ nThen(function(waitFor) {
 
     var gd = 'src/gadgets';
     console.log(process.cwd());
-    var BuildGadget = require('./buildgadget');
-    var Fs = require('fs');
 
-    Fs.readdirSync('./' + gd).forEach(function(file) {
-        BuildGadget(gd + '/' + file, waitFor(function(zipFile) {
-            doc.addAttachment(zipFile);
-        }));
-    });
+    var files = Fs.readdirSync('./' + gd);
+    var f = function() {
+        if (files.length > 0) {
+            BuildGadget(gd + '/' + files.pop(), waitFor(function(zipFile) {
+                doc.addAttachment(zipFile);
+                f();
+            }));
+        }
+    };
+    f();
 
     pack.addDocument(doc);
 

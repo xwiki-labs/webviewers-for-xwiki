@@ -17,23 +17,26 @@ String getPkg(doc, attach, ctx) {
     return null;
 }
 
-String doZip(xcontext, doc, fileName, mime, action) {
+String doZip(xcontext, doc, fileName, fileType, action) {
     def j = new JsonSlurper().parseText(getPkg(doc, fileName, xcontext));
-    def mt = j.get('resilience').get('mimeTypes');
-    def out = "";
-    for (Object k : mt.keySet()) {
-        if (mime.equals(k) && mt.get(k).contains(action)) { return true; }
+    def actions = j.get("resilience").get("actions");
+    def out = j.get("resilience").get("main");
+    if (!out) { out = j.get("main"); }
+    if (!out) { out = "index.html"; }
+    for (Object k : actions.keySet()) {
+        if (action.equals(k) && actions.get(k).contains(fileType)) { return out; }
     }
-    return false;
+    return null;
 }
 
-public String run(Object xcontext, Object doc, String mimeType, String action) {
+public String run(Object xcontext, Object doc, String fileType, String action) {
     out = '';
     for (Object o : doc.getAttachmentList()) {
         if (!o.getFilename().endsWith('.zip')) { continue; }
         //try {
-            if (doZip(xcontext, doc, o.getFilename(), mimeType, action)) {
-                return doc.getAttachmentURL(o.getFilename()) + "/index.html";
+            def s = doZip(xcontext, doc, o.getFilename(), fileType, action);
+            if (s != null) {
+                return doc.getAttachmentURL(o.getFilename()) + "/" + s;
             }
         //} catch (e) { out += e; }
     }

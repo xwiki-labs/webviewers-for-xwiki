@@ -121,6 +121,15 @@
       }
     };
 
+    var isBlob = function (potentialBlob) {
+        switch (String(potentialBlob.constructor)) {
+            case "function Blob() { [native code] }": // chrome
+            case "[object Blob]": // firefox
+                return true;
+            default: return false;
+        }
+    };
+
     /*
      * Wrapper for the xwikistorage based on localstorage JiO store.
      */
@@ -302,8 +311,7 @@
             return;
           }
           var parts = getParts(docId);
-          var blob = (content.constructor === "function Blob() { [native code] }")
-              ? content : makeBlob([content], {type: mimeType});
+          var blob = isBlob(content) ? content : makeBlob([content], {type: mimeType});
           var fd = new FormData();
           fd.append("filepath", blob, fileName);
           fd.append("form_token", formToken);
@@ -461,7 +469,6 @@
     // If true then Blob objects will be returned by
     // getAttachment() rather than strings.
     priv.useBlobs = spec.useBlobs || false;
-
 
     that.specToStore = function () {
       return {
@@ -696,7 +703,7 @@
 
   var $;
   if (typeof(define) === 'function' && define.amd) {
-    define(['jquery', 'jio', 'module'], function (jquery, j, mod) {
+    define(['jquery', 'jiobase', 'module'], function (jquery, j, mod) {
       $ = jquery;
       jIO.addStorageType('xwiki', store);
 

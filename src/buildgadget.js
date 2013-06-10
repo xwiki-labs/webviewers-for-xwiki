@@ -1,9 +1,10 @@
 /*jshint node:true */
-'use strict';
+var Zip = require('zip-archiver');
+var Temp = require('temp');
+var Fs = require('fs');
+
 module.exports = function (gadgetPath, callback) {
-    var Zip = require('zip-archiver');
-    var Temp = require('temp');
-    var Fs = require('fs');
+    'use strict';
 
     var write = function (data) {
         process.stdout.write(new Buffer(data).toString("utf-8"));
