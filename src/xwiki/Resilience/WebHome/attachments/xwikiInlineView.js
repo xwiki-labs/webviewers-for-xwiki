@@ -9,7 +9,7 @@ define(['jquery', 'typeconverter'], function($, Converter) {
 
       if (!elem.attr('data-gadget').match(/\.js$/)) { return false; }
 
-      var props = JSON.parse(elem.attr('data-gadget-property'));
+      var props = JSON.parse(unescape(elem.attr('data-gadget-property')));
       elem.removeAttr('data-gadget');
       elem.removeAttr('data-gadget-property');
 

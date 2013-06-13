@@ -26,7 +26,7 @@
   <div id="$mathtool.getRandom().toString().replaceAll("0\.", "gadget-")"
        class="gadget"
        data-gadget="$gadgets.get($as).view"
-       data-gadget-property='$jsontool.serialize($params)'
+       data-gadget-property="$escapetool.url($jsontool.serialize($params))"
   />
   {{/html}}
 
