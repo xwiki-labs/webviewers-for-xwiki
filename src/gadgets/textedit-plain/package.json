@@ -1,0 +1,22 @@
+{
+    "author": "Caleb James DeLisle",
+    "name": "textedit-plain",
+    "description": "Example XWiki/Resilience Gadget",
+    "version": "0.1.0",
+    "repository": {
+        "url": "https://github.com/cjdelisle/resilience-textedit-plain.git",
+        "type": "git"
+    },
+    "devDependencies": {
+    },
+    "__IGNORE__engines": {
+        "node": "*"
+    },
+    "resilience": {
+        "main": "index.js",
+        "actions": {
+            "edit":["c"],
+            "view":["c"]
+        }
+    }
+}

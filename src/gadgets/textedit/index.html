@@ -15,7 +15,7 @@ require(['jquery', 'jio'], function($, JIO) {
     fr.readAsText(response);
   });
 
-  if (props.action === 'edit') {
+  if (props.actions.edit) {
     $('#text-editor').append('<input id="text-editor-save" type="button" value="Save" /'+'>');
     $('#text-editor-save').click(function(ev) {
       ev.stopPropagation();

@@ -1,0 +1,35 @@
+{{velocity}}
+#set ($a = "view")
+##
+#set ($at = $!doc.getAttachment($xcontext.macro.params.tar))
+#set ($as = "$!xcontext.macro.params.as")
+#if("" == $!as)
+  #set ($as = $at.getFilename().replaceAll('^.*\.', ''))
+#end
+#set ($gadgets = $!xwiki.parseGroovyFromPage("Resilience.Code").run($xcontext))
+#set ($jioDocName = $doc.getFullName().replaceAll("\.", "/"))
+##
+#set ($jioAttach = { '_id': $jioDocName, '_attachment': $at.getFilename() })
+#set ($params = {
+  'moreParams': $!xcontext.macro.params.params,
+  'height': $!xcontext.macro.params.height,
+  'width': $!xcontext.macro.params.width,
+  'actions': $!gadgets.get($as),
+  'jioAttach': $!jioAttach
+})##
+##
+#if ($gadgets.containsKey($as) && $gadgets.get($as).containsKey('view'))
+
+  {{html}}
+  <div id="$mathtool.getRandom().toString().replaceAll("0\.", "gadget-")"
+       class="gadget"
+       data-gadget="$gadgets.get($as).view"
+       data-gadget-property='$jsontool.serialize($params)'
+  />
+  {{/html}}
+
+  $xwiki.jsx.use("Resilience.WebHome")##
+#else
+  {{error}}No gadget found for viewing filetype ".$as"{{/error}}
+#end
+{{/velocity}}
