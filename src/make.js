@@ -66,6 +66,8 @@ Fs.readdirSync(dir).forEach(function(file) {
     doc.setContent(XWiki.Tools.contentFromFile(dir + "content.xwiki21"));
     doc.setTitle("Resilience Loader Demo");
     doc.addAttachment(dir + "attachments/hello.txt");
+    doc.addAttachment(dir + "attachments/spreadsheet.jqs");
+    doc.addAttachment(dir + "attachments/ed25519-20110926.pdf");
     pack.addDocument(doc);
 })();
 

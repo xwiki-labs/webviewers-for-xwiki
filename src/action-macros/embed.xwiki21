@@ -3,7 +3,7 @@
 ##
 #set ($at = $!doc.getAttachment($xcontext.macro.params.tar))
 #set ($as = "$!xcontext.macro.params.as")
-#if("" == $!as)
+#if("" == "$!as")
   #set ($as = $at.getFilename().replaceAll('^.*\.', ''))
 #end
 #set ($gadgets = $!xwiki.parseGroovyFromPage("Resilience.Code").run($xcontext))
@@ -18,7 +18,9 @@
   'jioAttach': $!jioAttach
 })##
 ##
-#if ($gadgets.containsKey($as) && $gadgets.get($as).containsKey('view'))
+#if ("$!at" == "")
+  {{error}}No valid attachment name specified.{{/error}}
+#elseif ($gadgets.containsKey($as) && $gadgets.get($as).containsKey('view'))
 
   {{html}}
   <div id="$mathtool.getRandom().toString().replaceAll("0\.", "gadget-")"

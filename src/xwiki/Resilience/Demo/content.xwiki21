@@ -1,1 +1,34 @@
-{{edit tar="hello.txt"/}}
+~{~{embed tar="hello.txt" /~}~}
+
+{{embed tar="hello.txt" /}}
+
+You can specify width and height.
+~{~{embed tar="hello.txt" width="400" height="300" /~}~}
+
+{{embed tar="hello.txt" width="400" height="300" /}}
+
+"params" are passed directly to the gadget, if you specify "help" the gadget will describe itself.
+~{~{embed tar="hello.txt" width="400" height="300" params="help" /~}~}
+
+{{embed tar="hello.txt" width="400" height="300" params="help" /}}
+
+
+When you install pdf.js gadget, this embed will begin working:
+To install, simply attach the .zip file to [[Gadgets]].
+https://github.com/cjdelisle/pdf.js/tree/resilience
+https://github.com/cjdelisle/pdf.js-resilience-mvnbuild
+~{~{embed tar="ed25519-20110926.pdf" /~}~}
+
+{{embed tar="ed25519-20110926.pdf" /}}
+
+
+This embed will begin working when you install jquery.sheet gadget:
+https://github.com/cjdelisle/resilience-spreadsheet
+https://github.com/cjdelisle/resilience-spreadsheet-mvnbuild
+~{~{embed tar="spreadsheet.jqs" /~}~}
+
+{{embed tar="spreadsheet.jqs" /}}
+
+
+Notice below, for each attachment which can be viewed or edited here, there's also a
+corrisponding button in the attachments pane.

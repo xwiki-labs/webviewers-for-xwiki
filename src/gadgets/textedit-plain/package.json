@@ -15,8 +15,8 @@
     "resilience": {
         "main": "index.js",
         "actions": {
-            "edit":["c"],
-            "view":["c"]
+            "edit":["c","java","txt","js"],
+            "view":["c","java","txt","js"]
         }
     }
 }

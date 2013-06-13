@@ -70,7 +70,6 @@ class AttachEventListener implements EventListener
         if (this.actionMappings != null) {
             if (!force) { return; }
         }
-
         def xc = xcontext.getContext();
         def doc = xc.getWiki().getDocument("Resilience","Gadgets",xc).newDocument(xc);
         def am = new HashMap();
