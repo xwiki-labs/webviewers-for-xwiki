@@ -48,12 +48,12 @@ define(['jquery', 'simplemodal_osx', 'typeconverter'], function($, SimpleModalOS
 
   var addButton = function(domLocation, keyCombo, name) {
     var id = 'id-' + String(Math.random()).replace(/0\./, '');
-    $(domLocation).append('<span class="buttonwrapper">' +
-      '<input class="button" type="submit" id="' + id + '"></input></span>');
-    var ret = $('#' + id);
+    var w = $('<span class="buttonwrapper"><input class="button" type="submit"></input></span>');
+    $(domLocation).append(w);
+    var ret = $(w).children().first();
     ret.attr('title', keyCombo);
     ret.attr('value', name);
-    return ret
+    return ret;
   };
 
   var modalData = $('#osx-modal-data');
@@ -69,7 +69,7 @@ define(['jquery', 'simplemodal_osx', 'typeconverter'], function($, SimpleModalOS
   var saveClose = addButton(buttonDiv, 'Alt+S', 'Save & Close');
   var cancel = addButton(buttonDiv, 'Alt+C', 'Cancel');
 
-  var spawn = function(gadgetPath, action, getData, putData) {
+  var spawn = function(rootGadget, gadgetPath, action, getData, putData) {
     if (action === 'edit') {
       $(buttonDiv).css({});
     } else {
@@ -77,15 +77,33 @@ define(['jquery', 'simplemodal_osx', 'typeconverter'], function($, SimpleModalOS
       $(saveClose).css({display:'none'});
       $(cancel).attr('value', 'Close');
     }
-    gadgetPath = gadgetPath.replace(/^\/|\.js$/g, '');
-    var gadgetInstance;
-    require([gadgetPath], function(gadget) {
-      gadgetInstance = gadget(function(type, cb) {
-        Converter.convert(getData, type, cb);
-      }, targetDiv, 'edit');
-    });
+
 
     SimpleModalOSX(function(modal) {
+
+      window.jQuery = $;
+      var gadgetInstance;
+      rootGadget.declareIframedGadget(gadgetPath, $(targetDiv)).done(function(gadget) {
+        gadgetInstance = gadget;
+        var ifr = $(targetDiv).find('iframe');
+        ifr.attr('width', $(targetDiv).width());
+        ifr.attr('height', $(targetDiv).height());
+        var ifrDoc = ifr[0].contentWindow.document;
+        var href = $(ifrDoc).find('[rel="http://www.renderjs.org/rel/interface"]').attr('href');
+        var type = '';
+        if (href === 'http://www.renderjs.org/interface/cjd-blob-editor') {
+          type = 'blob';
+        } else if (href === 'http://www.renderjs.org/interface/cjd-text-editor') {
+          type = 'text';
+        } else {
+          throw new Error('unknown interface type [' + href + ']');
+        }
+        Converter.convert(getData, type, function (err, ret) {
+          if (err) { throw err; }
+          gadget.setContent(ret);
+        });
+      });
+
       $(cancel).click(function() { modal.close(); });
 
       // Close is called back twice, beginning and complete. We reload on the second call.
@@ -101,19 +119,28 @@ define(['jquery', 'simplemodal_osx', 'typeconverter'], function($, SimpleModalOS
 
       var save = function(cb) {
         var note = new XWiki.widgets.Notification('Saving', 'inprogress');
-        Converter.convert(gadgetInstance.getData, 'blob', function(err, ret) {
-          if (err) {
-            note.replace(new XWiki.widgets.Notification('Error: ' + err, 'error'));
-            return;
-          }
-          putData(ret, function(err) {
-            if (err) {
-              note.replace(new XWiki.widgets.Notification('Error: ' + err, 'error'));
-              return;
+        var contentPromise = gadgetInstance.getContent();
+        contentPromise.done(function(ret) {
+          Converter.convert(
+            function(cb) {
+              cb(undefined, ret);
+            },
+            'blob',
+            function(err, ret) {
+              if (err) {
+                note.replace(new XWiki.widgets.Notification('Error: ' + err, 'error'));
+                return;
+              }
+              putData(ret, function(err) {
+                if (err) {
+                  note.replace(new XWiki.widgets.Notification('Error: ' + err, 'error'));
+                  return;
+                }
+                note.replace(new XWiki.widgets.Notification('Saved', 'done'));
+                if (typeof(cb) === 'function') { cb(); }
+              });
             }
-            note.replace(new XWiki.widgets.Notification('Saved', 'done'));
-            if (typeof(cb) === 'function') { cb(); }
-          });
+          );
         });
       };
 
@@ -131,7 +158,7 @@ define(['jquery', 'simplemodal_osx', 'typeconverter'], function($, SimpleModalOS
   return {
     spawn: spawn,
 
-    injectEditButton: function (domLocation, actions, getData, putData) {
+    injectEditButton: function (rootGadget, domLocation, actions, getData, putData) {
       if (!actions.edit) { return; }
       $(domLocation).prepend('<a href="#">' +
         '<img src="/xwiki/resources/icons/silk/pencil_add.png">' +
@@ -139,7 +166,7 @@ define(['jquery', 'simplemodal_osx', 'typeconverter'], function($, SimpleModalOS
       var a = $(domLocation).children()[0];
       $(a).click(function(ev) {
         ev.stopPropagation();
-        spawn(actions.edit, 'edit', getData, putData);
+        spawn(rootGadget, unescape(actions.edit), 'edit', getData, putData);
       });
     },
   };

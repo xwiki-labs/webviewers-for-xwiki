@@ -21,7 +21,8 @@
     },
     paths: paths,
     shim: {
-      jiobase: ["md5"]
+      jiobase: ["md5"],
+      renderjs: ["$doc.getAttachmentURL('jschannel.js')"]
     }
   });
 
@@ -41,20 +42,9 @@
     });
   });
 
-  var elems = document.getElementsByClassName('gadget');
-  // fast path, no elements
-  if (elems.length === 0) { return; }
-  require(['xwikiInlineView'], function(xwikiInlineView) {
-    var rjsElements = elems.length;
-    for (var i = 0; i < elems.length; i++) {
-      if (xwikiInlineView.tryGadget(elems[i]) && i == elems.length-1) {
-        rjsElements--;
-      }
-    }
-    if (rjsElements > 0) {
-      require(["renderjs"], function(RenderJs) {
-          RenderJs.init();
-      });
-    }
+  require(['xwikiInlineView', 'jquery'], function(xiv, $) {
+    $('[data-gadget]').each(function(i, elem) {
+      xiv.tryGadget(elem);
+    });
   });
 })();
