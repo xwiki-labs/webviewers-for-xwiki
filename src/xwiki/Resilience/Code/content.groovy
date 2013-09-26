@@ -5,6 +5,7 @@ import java.io.StringWriter;
 import org.apache.commons.io.IOUtils;
 import groovy.json.JsonSlurper;
 import java.util.Collections;
+import java.net.URLDecoder;
 
 import org.xwiki.observation.ObservationManager;
 import org.xwiki.observation.EventListener;
@@ -60,7 +61,7 @@ class AttachEventListener implements EventListener
                     hm = new HashMap();
                     out.put(fileType, hm);
                 }
-                hm.put(action,  doc.getAttachmentURL(fileName) + "/" + main);
+                hm.put(action, URLDecoder.decode(doc.getAttachmentURL(fileName), "UTF-8") + "/" + main);
             }
         }
         return out;

@@ -4,7 +4,7 @@ define(['jquery', 'typeconverter', 'jio'], function($, Converter, jio) {
   };
 
   return {
-    tryGadget: function(gadgetElement) {
+    tryGadget: function(root, gadgetElement) {
       var elem = $(gadgetElement)
 
       if (!elem.attr('data-gadget').match(/\.html$/)) { return false; }
@@ -37,44 +37,39 @@ define(['jquery', 'typeconverter', 'jio'], function($, Converter, jio) {
       };
 
       window.jQuery = $;
-      require(['renderjs'], function() {
-        rJS(window).ready(function() {
-          var root = rJS(this);
 
-          if (props.actions.edit) {
-            require(['xwikiEditGadget', 'jio'], function(xeg, jio) {
-              xeg.injectEditButton(root,
-                                   gadgetElement,
-                                   props.actions,
-                                   getGetData(jio, props.jioAttach),
-                                   getPutData(jio, props.jioAttach));
-            });
+      if (props.actions.edit && XWiki.hasEdit) {
+        require(['xwikiEditGadget', 'jio'], function(xeg, jio) {
+          xeg.injectEditButton(root,
+                               gadgetElement,
+                               props.actions,
+                               getGetData(jio, props.jioAttach),
+                               getPutData(jio, props.jioAttach));
+        });
+      }
+
+      var innerDiv = $('<div style="width:100%;height:100%;"></div>');
+      $(elem).append(innerDiv);
+      root.declareIframedGadget(decodeURI($(elem).attr('data-gadget')), $(innerDiv)).done(
+        function(gadget) {
+          var ifrDoc = $(elem).find('iframe')[0].contentWindow.document;
+          var href = $(ifrDoc).find('[rel="http://www.renderjs.org/rel/interface"]').attr('href');
+          var type = '';
+          if (href === 'http://www.renderjs.org/interface/blob-editor') {
+            type = 'blob';
+          } else if (href === 'http://www.renderjs.org/interface/text-editor') {
+            type = 'text';
+          } else {
+            throw new Error('unknown interface type [' + href + ']');
           }
 
-          var innerDiv = $('<div style="width:100%;height:100%;"></div>');
-          $(elem).append(innerDiv);
-          root.declareIframedGadget(unescape($(elem).attr('data-gadget')), $(innerDiv)).done(
-            function(gadget) {
-              var ifrDoc = $(elem).find('iframe')[0].contentWindow.document;
-              var href = $(ifrDoc).find('[rel="http://www.renderjs.org/rel/interface"]').attr('href');
-              var type = '';
-              if (href === 'http://www.renderjs.org/interface/blob-editor') {
-                type = 'blob';
-              } else if (href === 'http://www.renderjs.org/interface/text-editor') {
-                type = 'text';
-              } else {
-                throw new Error('unknown interface type [' + href + ']');
-              }
-
-              Converter.convert(getGetData(jio, props.jioAttach), type, function (err, ret) {
-                if (err) { throw err; }
-                if (type === 'blob') { ret = URL.createObjectURL(ret); }
-                gadget.setContent(ret);
-              });
-            }
-          );
-        });
-      });
+          Converter.convert(getGetData(jio, props.jioAttach), type, function (err, ret) {
+            if (err) { throw err; }
+            if (type === 'blob') { ret = URL.createObjectURL(ret); }
+            gadget.setContent(ret);
+          });
+        }
+      );
 
       return true;
     },

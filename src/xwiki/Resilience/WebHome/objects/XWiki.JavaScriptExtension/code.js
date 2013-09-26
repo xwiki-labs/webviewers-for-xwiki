@@ -22,29 +22,36 @@
     paths: paths,
     shim: {
       jiobase: ["md5"],
-      renderjs: ["$doc.getAttachmentURL('jschannel.js')"]
+      renderjs: ["jquery", "$doc.getAttachmentURL('jschannel.js')"]
     }
   });
 
-  require(['rHooks', 'rGadgets'], function(hookProvider, gadgets) {
-    hookProvider(function(hooks) {
-      for (var i = 0; i < hooks.length; i++) {
-        hooks[i](gadgets, {
-          edit:'/xwiki/resources/icons/silk/pencil_add.png',
-          view:'/xwiki/resources/icons/silk/magnifier.png'
-        },
-        function(gadgetPath, action, getData, putData) {
-          require(['xwikiEditGadget'], function(xeg) {
-            xeg.spawn(gadgetPath, action, getData, putData);
-          });
-        });
-      }
-    });
-  });
+  require(['renderjs'], function() {
+    rJS(window).ready(function() {
+      var root = rJS(this);
 
-  require(['xwikiInlineView', 'jquery'], function(xiv, $) {
-    $('[data-gadget]').each(function(i, elem) {
-      xiv.tryGadget(elem);
+      require(['rHooks', 'rGadgets'], function(hookProvider, gadgets) {
+        hookProvider(function(hooks) {
+          for (var i = 0; i < hooks.length; i++) {
+            hooks[i](gadgets, {
+              edit:'/xwiki/resources/icons/silk/pencil_add.png',
+              view:'/xwiki/resources/icons/silk/magnifier.png'
+            },
+            function(gadgetPath, action, getData, putData) {
+              require(['xwikiEditGadget'], function(xeg) {
+                xeg.spawn(root, gadgetPath, action, getData, putData);
+              });
+            });
+          }
+        });
+      });
+
+      require(['xwikiInlineView', 'jquery'], function(xiv, $) {
+        $('[data-gadget]').each(function(i, elem) {
+          xiv.tryGadget(root, elem);
+        });
+      });
+
     });
   });
 })();

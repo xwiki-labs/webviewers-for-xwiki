@@ -78,19 +78,15 @@ define(['jquery', 'simplemodal_osx', 'typeconverter'], function($, SimpleModalOS
       $(cancel).attr('value', 'Close');
     }
 
-
     SimpleModalOSX(function(modal) {
 
       window.jQuery = $;
       var gadgetInstance;
+      var type;
       rootGadget.declareIframedGadget(gadgetPath, $(targetDiv)).done(function(gadget) {
         gadgetInstance = gadget;
-        var ifr = $(targetDiv).find('iframe');
-        ifr.attr('width', $(targetDiv).width());
-        ifr.attr('height', $(targetDiv).height());
-        var ifrDoc = ifr[0].contentWindow.document;
+        var ifrDoc = $(targetDiv).find('iframe')[0].contentWindow.document;
         var href = $(ifrDoc).find('[rel="http://www.renderjs.org/rel/interface"]').attr('href');
-        var type = '';
         if (href === 'http://www.renderjs.org/interface/blob-editor') {
           type = 'blob';
         } else if (href === 'http://www.renderjs.org/interface/text-editor') {
@@ -103,6 +99,8 @@ define(['jquery', 'simplemodal_osx', 'typeconverter'], function($, SimpleModalOS
           if (type === 'blob') { ret = URL.createObjectURL(ret); }
           gadget.setContent(ret);
         });
+      }).fail(function(err) {
+        console.log(err);
       });
 
       $(cancel).click(function() { modal.close(); });
@@ -169,7 +167,6 @@ define(['jquery', 'simplemodal_osx', 'typeconverter'], function($, SimpleModalOS
         save();
       });
 
-      console.log("done");
     });
   };
 
@@ -184,7 +181,7 @@ define(['jquery', 'simplemodal_osx', 'typeconverter'], function($, SimpleModalOS
       var a = $(domLocation).children()[0];
       $(a).click(function(ev) {
         ev.stopPropagation();
-        spawn(rootGadget, unescape(actions.edit), 'edit', getData, putData);
+        spawn(rootGadget, decodeURI(actions.edit), 'edit', getData, putData);
       });
     },
   };

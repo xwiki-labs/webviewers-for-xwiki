@@ -4,7 +4,7 @@ define(function(jio) {
     var canDo = function(elem, actions) {
       var meta = elem.parentNode.parentNode.getElementsByClassName('meta')[0];
       for (var action in actions) { (function(action) {
-        if (!images[action]) { return; }
+        if (!images[action] || (action === 'edit' && !XWiki.hasEdit)) { return; }
         var img = document.createElement('img');
         img.setAttribute('src', images[action]);
         var link = document.createElement('a');
