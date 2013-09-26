@@ -1,5 +1,4 @@
 {
-    "modelVersion": "0.1",
     "author": "Caleb James DeLisle",
     "name": "textedit",
     "description": "Example RenderJs/JIO Application",
@@ -18,6 +17,7 @@
         "test": "node test/run.js"
     },
     "resilience": {
+        "modelVersion": "0.1",
         "main":"index.html",
         "actions": {
             "edit":["txt","c","java"],

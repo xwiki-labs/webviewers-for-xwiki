@@ -55,10 +55,7 @@ define(['jquery', 'typeconverter', 'jio'], function($, Converter, jio) {
           $(elem).append(innerDiv);
           root.declareIframedGadget(unescape($(elem).attr('data-gadget')), $(innerDiv)).done(
             function(gadget) {
-              var ifr = $(elem).find('iframe');
-              ifr.attr('width', $(elem).width());
-              ifr.attr('height', $(elem).height());
-              var ifrDoc = ifr[0].contentWindow.document;
+              var ifrDoc = $(elem).find('iframe')[0].contentWindow.document;
               var href = $(ifrDoc).find('[rel="http://www.renderjs.org/rel/interface"]').attr('href');
               var type = '';
               if (href === 'http://www.renderjs.org/interface/blob-editor') {
@@ -71,6 +68,7 @@ define(['jquery', 'typeconverter', 'jio'], function($, Converter, jio) {
 
               Converter.convert(getGetData(jio, props.jioAttach), type, function (err, ret) {
                 if (err) { throw err; }
+                if (type === 'blob') { ret = URL.createObjectURL(ret); }
                 gadget.setContent(ret);
               });
             }

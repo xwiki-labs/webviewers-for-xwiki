@@ -248,7 +248,9 @@
         if (gadget.context !== undefined) {
           $(gadget.context).html(
             // Use encodeURI to prevent XSS
-            '<iframe src="' + encodeURI(url) + '"></iframe>'
+            '<iframe src="' + encodeURI(url) + '" ' +
+                    'width="' + $(jquery_context).width() + '" ' +
+                    'height="' + $(jquery_context).height() + '"></iframe>'
           );
           gadget.chan = Channel.build({
             window: gadget.context.find('iframe').first()[0].contentWindow,

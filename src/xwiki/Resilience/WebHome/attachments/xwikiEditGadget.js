@@ -91,15 +91,16 @@ define(['jquery', 'simplemodal_osx', 'typeconverter'], function($, SimpleModalOS
         var ifrDoc = ifr[0].contentWindow.document;
         var href = $(ifrDoc).find('[rel="http://www.renderjs.org/rel/interface"]').attr('href');
         var type = '';
-        if (href === 'http://www.renderjs.org/interface/cjd-blob-editor') {
+        if (href === 'http://www.renderjs.org/interface/blob-editor') {
           type = 'blob';
-        } else if (href === 'http://www.renderjs.org/interface/cjd-text-editor') {
+        } else if (href === 'http://www.renderjs.org/interface/text-editor') {
           type = 'text';
         } else {
           throw new Error('unknown interface type [' + href + ']');
         }
         Converter.convert(getData, type, function (err, ret) {
           if (err) { throw err; }
+          if (type === 'blob') { ret = URL.createObjectURL(ret); }
           gadget.setContent(ret);
         });
       });
@@ -120,7 +121,8 @@ define(['jquery', 'simplemodal_osx', 'typeconverter'], function($, SimpleModalOS
       var save = function(cb) {
         var note = new XWiki.widgets.Notification('Saving', 'inprogress');
         var contentPromise = gadgetInstance.getContent();
-        contentPromise.done(function(ret) {
+
+        var convert = function(ret) {
           Converter.convert(
             function(cb) {
               cb(undefined, ret);
@@ -141,7 +143,23 @@ define(['jquery', 'simplemodal_osx', 'typeconverter'], function($, SimpleModalOS
               });
             }
           );
-        });
+        };
+
+        if (type === 'blob') {
+          contentPromise.done(function(ret) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    convert(this.response);
+                }
+            };
+            xhr.open('GET', ret);
+            xhr.responseType = 'blob';
+            xhr.send(); 
+          });
+        } else {
+          contentPromise.done(convert);
+        }
       };
 
       $(saveClose).click(function() {

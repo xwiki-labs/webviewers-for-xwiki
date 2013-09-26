@@ -2,8 +2,6 @@
 (function (window, $, rJS) {
   "use strict";
 
-console.log('hello world');
-
   rJS(window).declareMethod('setContent', function (value) {
     return rJS(this).context.find('textarea').val(value);
 
