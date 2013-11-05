@@ -1,2 +1,3 @@
 *.xar
 mvnout
+node_modules
