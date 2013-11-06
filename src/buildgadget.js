@@ -10,7 +10,7 @@ module.exports = function (gadgetPath, callback) {
         process.stdout.write(new Buffer(data).toString("utf-8"));
     };
 
-    Temp.mkdir('resilience-gadget', function(err, dirPath) {
+    Temp.mkdir('webviewer', function(err, dirPath) {
         if (err) { throw err; }
         var outName = dirPath + '/' + gadgetPath.replace(/.*\//, '') + '.zip';
         var file = new Zip.Zip({ file: outName  });

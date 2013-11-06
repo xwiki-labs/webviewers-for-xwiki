@@ -13,13 +13,12 @@ define(['jquery', 'typeconverter', 'jio'], function($, Converter, jio) {
       //elem.removeAttr('data-gadget');
       //elem.removeAttr('data-gadget-property');
 
-
       props.height = props.height || "60%";
       props.width = props.width || "80%";
       if (props.height.match(/%$/)) {
         // fix up percent params which should be percent of the visible space.
         var percent = new Number(props.height.replace('%', ''));
-        props.height = Math.floor($(window).height() * (percent/100)) + "px"
+        props.height = Math.floor($(window).height() * (percent/100)) + "px";
       }
       $(elem).css({width:props.width, height:props.height});
 

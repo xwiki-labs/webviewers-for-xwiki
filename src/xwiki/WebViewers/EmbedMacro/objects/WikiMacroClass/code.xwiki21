@@ -6,7 +6,7 @@
 #if("" == "$!as")
   #set ($as = $at.getFilename().replaceAll('^.*\.', ''))
 #end
-#set ($gadgets = $!xwiki.parseGroovyFromPage("Resilience.Code").run($xcontext))
+#set ($gadgets = $!xwiki.parseGroovyFromPage("WebViewers.Code").run($xcontext))
 #set ($jioDocName = $doc.getFullName().replaceAll("\.", "/"))
 ##
 #set ($jioAttach = { '_id': $jioDocName, '_attachment': $at.getFilename() })
@@ -30,8 +30,8 @@
   />
   {{/html}}
 
-  $xwiki.jsx.use("Resilience.WebHome")##
+  $xwiki.jsx.use("WebViewers.WebHome")##
 #else
-  {{error}}No gadget found for viewing filetype ".$as"{{/error}}
+  {{error}}No WebViewer found for viewing filetype ".$as"{{/error}}
 #end
 {{/velocity}}

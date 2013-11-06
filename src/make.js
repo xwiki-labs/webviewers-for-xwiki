@@ -7,16 +7,16 @@ var Os = require('os');
 //---------------------- Create XWiki Package ----------------------//
 
 var pack = new XWiki.Package();
-pack.setName("XWiki - Contrib - Resilience");
+pack.setName("XWiki - Contrib - WebViewers");
 pack.setDescription("A container for platform independent web gadgets");
-pack.setExtensionId("org.xwiki.contrib:xwiki-contrib-resilience");
+pack.setExtensionId("org.xwiki.contrib:xwiki-contrib-webviewers");
 
 
-//---------------------- Resilience.WebHome ----------------------//
+//---------------------- WebViewers.WebHome ----------------------//
 ;(function() {
-    var dir = "src/xwiki/Resilience/WebHome/";
-    var doc = new XWiki.model.XWikiDoc(["Resilience","WebHome"]);
-    doc.setTitle("Resilience Gadget Loader");
+    var dir = "src/xwiki/WebViewers/WebHome/";
+    var doc = new XWiki.model.XWikiDoc(["WebViewers","WebHome"]);
+    doc.setTitle("WebViewers Gadget Loader");
 
     var obj = new XWiki.model.classes.JavaScriptExtension();
     obj.setCode(XWiki.Tools.contentFromFile(dir + "objects/XWiki.JavaScriptExtension/code.js"));
@@ -33,19 +33,16 @@ pack.setExtensionId("org.xwiki.contrib:xwiki-contrib-resilience");
 })();
 
 // {{embed tar="hello.abc" as="txt" width="100%" height="100%" params="help" /}}
-var dir = "src/action-macros/";
-Fs.readdirSync(dir).forEach(function(file) {
-    var act = file.replace(/.*\/|\..*/, '');
-
-    var doc =
-        new XWiki.model.XWikiDoc(["Resilience", act[0].toUpperCase()+act.substring(1)+"Macro"]);
-    doc.setTitle("Resilience " + act + " macro");
+;(function() {
+    var dir = "src/xwiki/WebViewers/EmbedMacro/";
+    var doc = new XWiki.model.XWikiDoc(["WebViewers","EmbedMacro"]);
+    doc.setTitle("WebViewer Embed Macro");
 
     var obj = new XWiki.model.classes.WikiMacroClass();
-    obj.setCode(XWiki.Tools.contentFromFile(dir+file));
-    obj.setDefaultCategory("resilience");
-    obj.setId(act);
-    obj.setName(act);
+    obj.setCode(XWiki.Tools.contentFromFile(dir+"objects/WikiMacroClass/code.xwiki21"));
+    obj.setDefaultCategory("webviewer");
+    obj.setId("embed");
+    obj.setName("embed");
     doc.addXObject(obj);
 
     var WikiMacroParameterClass = XWiki.model.classes.WikiMacroParameterClass;
@@ -56,15 +53,15 @@ Fs.readdirSync(dir).forEach(function(file) {
     doc.addXObject(new WikiMacroParameterClass().setName("params").setMandatory(false));
 
     pack.addDocument(doc);
-});
+})();
 
 
-//---------------------- Resilience.Demo ----------------------//
+//---------------------- WebViewers.Demo ----------------------//
 ;(function() {
-    var dir = "src/xwiki/Resilience/Demo/";
-    var doc = new XWiki.model.XWikiDoc(["Resilience","Demo"]);
+    var dir = "src/xwiki/WebViewers/Demo/";
+    var doc = new XWiki.model.XWikiDoc(["WebViewers","Demo"]);
     doc.setContent(XWiki.Tools.contentFromFile(dir + "content.xwiki21"));
-    doc.setTitle("Resilience Loader Demo");
+    doc.setTitle("WebViewers Loader Demo");
     doc.addAttachment(dir + "attachments/hello.txt");
     doc.addAttachment(dir + "attachments/spreadsheet.jqs");
     doc.addAttachment(dir + "attachments/ed25519-20110926.pdf");
@@ -72,33 +69,18 @@ Fs.readdirSync(dir).forEach(function(file) {
 })();
 
 
-//---------------------- Build Gadgets ----------------------//
-nThen(function(waitFor) {
-
-    var doc = new XWiki.model.XWikiDoc(["Resilience","Gadgets"]);
-    doc.setTitle("Resilience Gadget Container");
-
-    var gd = 'src/gadgets';
-    console.log(process.cwd());
-
-    var files = Fs.readdirSync('./' + gd);
-    var f = function() {
-        if (files.length > 0) {
-            BuildGadget(gd + '/' + files.pop(), waitFor(function(zipFile) {
-                doc.addAttachment(zipFile);
-                f();
-            }));
-        }
-    };
-    f();
-
+//------------------- WebViewers.WebViewerClass ------------------//
+;(function() {
+    // todo make generic
+    var doc = new XWiki.model.XWikiDoc(["WebViewers","WebViewerClass"]);
+    require('./xwiki/WebViewers/WebViewerClass.js')(doc);
     pack.addDocument(doc);
+})();
 
-
-//---------------------- Resilience.Code ----------------------//
-}).nThen(function(waitFor) {
-    var dir = "src/xwiki/Resilience/Code";
-    doc = new XWiki.model.XWikiDoc(["Resilience","Code"]);
+//---------------------- WebViewers.Code ----------------------//
+nThen(function(waitFor) {
+    var dir = "src/xwiki/WebViewers/Code";
+    doc = new XWiki.model.XWikiDoc(["WebViewers","Code"]);
     doc.setContent(XWiki.Tools.contentFromFile(dir+"/content.groovy"));
 
     // also include code for getting the list of working actions.
@@ -163,7 +145,7 @@ nThen(function(waitFor) {
         pack.genMvn('mvnout');
 
     } else {
-        pack.genXar('XWiki.Resilience.xar');
+        pack.genXar('webviewers-for-xwiki.xar');
     }
 
 });

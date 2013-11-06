@@ -7,6 +7,6 @@
         "type": "git"
     },
     "dependencies": {
-        "xwiki-tools": "~0.3.3"
+        "xwiki-tools": "~0.3.4"
     }
 }
