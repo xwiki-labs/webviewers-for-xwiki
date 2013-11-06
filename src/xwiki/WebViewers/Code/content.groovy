@@ -89,14 +89,12 @@ class AttachEventListener implements EventListener
         def names = xwiki.searchDocuments(", BaseObject as obj where "
                                         + "obj.className = 'WebViewers.WebViewerClass' "
                                         + "and obj.name = doc.fullName");
-System.out.println("found [" + names + "]");
         def am = new HashMap();
         for (Object name : names) {
             def doc = xwiki.getDocument(name);
             for (Object o : doc.getAttachmentList()) {
                 if (!o.getFilename().endsWith(".zip")) { continue; }
                 //try {
-System.out.println("trying zip [" + o.getFilename() + "]");
                     doZip(xcontext, doc, o.getFilename(), am);
                 //} catch (e) { out += e; }
             }
