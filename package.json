@@ -1,7 +1,7 @@
 {
     "name": "webviewers-for-xwiki",
     "description": "XWiki extension for adding WebViewer capability",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "repository": {
         "url": "https://github.com/WebViewers/webviewer-for-xwiki.git",
         "type": "git"
