@@ -1,4 +1,4 @@
-# WebVewers for XWiki
+# WebViewers for XWiki
 
 To build it manually:
 
