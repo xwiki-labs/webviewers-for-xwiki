@@ -1,6 +1,5 @@
 var XWiki = require('xwiki-tools');
 var nThen = require('nthen');
-var BuildGadget = require('./buildgadget');
 var Fs = require('fs');
 var Os = require('os');
 
