@@ -289,7 +289,7 @@
               if (id !== "renderjs-stub-request") {
                 return;
               }
-            } catch {
+            } catch (e) {
               return;
             }
             if (window.addEventListener) {
