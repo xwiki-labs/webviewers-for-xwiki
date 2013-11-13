@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Viewers</web>
+<name>ViewersTranslations</name>
+<language></language>
+<defaultLanguage></defaultLanguage>
+<translation>0</translation>
+<parent>ViewersClass</parent>
+<creator>XWiki.ludovic</creator>
+<author>XWiki.ludovic</author>
+<customClass></customClass>
+<contentAuthor>XWiki.ludovic</contentAuthor>
+<creationDate>1380534647000</creationDate>
+<date>1380549952000</date>
+<contentUpdateDate>1380549952000</contentUpdateDate>
+<version>8.1</version>
+<title></title>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment>Update translations</comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>true</hidden>
+<object>
+<class>
+<name>XWiki.TranslationDocumentClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<scope>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>scope</name>
+<number>1</number>
+<prettyName>Scope</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>GLOBAL|WIKI|USER|ON_DEMAND</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</scope>
+</class>
+<name>Viewers.ViewersTranslations</name>
+<number>0</number>
+<className>XWiki.TranslationDocumentClass</className>
+<guid>1866eeac-6203-48e9-92de-4cd267a570a1</guid>
+<property>
+<scope>ON_DEMAND</scope>
+</property>
+</object>
+<content># Class fields
+Viewers.ViewersClass_viewername=Viewer Name
+Viewers.ViewersClass_description=Description
+Viewers.ViewersClass_package=Package
+Viewers.ViewersClass_status=Status
+Viewers.ViewersClass_status_released=Released
+Viewers.ViewersClass_status_alpha=Alpha
+Viewers.ViewersClass_status_beta=Beta
+Viewers.ViewersClass_status_planned=Planned
+Viewers.ViewersClass_mode=Viewer Mode
+Viewers.ViewersClass_mode_edit=edit
+Viewers.ViewersClass_mode_view=view
+Viewers.ViewersClass_type=Viewer Type
+Viewers.ViewersClass_type_office=office
+Viewers.ViewersClass_type_other=other
+Viewers.ViewersClass_type_business=business
+Viewers.ViewersClass_type_drawing=drawing
+Viewers.ViewersClass_wrapperDeveloper=Viewer Wrapper Developer
+Viewers.ViewersClass_wrapperVersion=Viewer Wrapper Version
+Viewers.ViewersClass_wrapperLicence=Viewer Wrapper Licence
+Viewers.ViewersClass_sourcecodeurl=Viewer Wrapper Source Code URL
+Viewers.ViewersClass_developer=Viewer Developer
+Viewers.ViewersClass_version=Viewer Version
+Viewers.ViewersClass_licence=Viewer Licence
+Viewers.ViewersClass_url=Viewer URL
+Viewers.ViewersClass_details=Details
+
+# Live table generic keys
+viewers.livetable.doc.title=Page title
+viewers.livetable.doc.name=Page name
+viewers.livetable.doc.space=Space
+viewers.livetable.doc.fullname=Page full name
+viewers.livetable.doc.author=Last Author
+viewers.livetable.doc.creator=Creator
+viewers.livetable.doc.date=Update date
+viewers.livetable.doc.creationDate=Creation date
+viewers.livetable._avatar=Avatar
+viewers.livetable._images=Images
+viewers.livetable._attachments=Attachments
+viewers.livetable._actions=Actions
+viewers.livetable._actions.edit=Edit
+viewers.livetable._actions.delete=Delete
+viewers.livetable.emptyvalue=-
+
+# Live table specific keys
+viewers.livetable.viewername=Viewer Name
+viewers.livetable.description=Description
+viewers.livetable.package=Package
+viewers.livetable.status=Status
+viewers.livetable.mode=Viewer Mode
+viewers.livetable.type=Viewer Type
+viewers.livetable.wrapperDeveloper=Viewer Wrapper Developer
+viewers.livetable.wrapperVersion=Viewer Wrapper Version
+viewers.livetable.wrapperLicence=Viewer Wrapper Licence
+viewers.livetable.sourcecodeurl=Viewer Wrapper Source Code URL
+viewers.livetable.developer=Viewer Developer
+viewers.livetable.version=Viewer Version
+viewers.livetable.licence=Viewer Licence
+viewers.livetable.url=Viewer URL
+viewers.livetable.details=Details</content>
+<versions>head	8.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+8.1
+date	2013.09.30.16.05.52;	author XWiki_2Eludovic;	state full;
+branches;
+next	7.1;
+
+7.1
+date	2013.09.30.16.04.37;	author XWiki_2Eludovic;	state diff;
+branches;
+next	6.1;
+
+6.1
+date	2013.09.30.16.02.26;	author XWiki_2Eludovic;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2013.09.30.12.59.30;	author XWiki_2Eludovic;	state full;
+branches;
+next	4.1;
+
+4.1
+date	2013.09.30.12.51.00;	author XWiki_2Eludovic;	state diff;
+branches;
+next	3.1;
+
+3.1
+date	2013.09.30.12.35.11;	author XWiki_2Eludovic;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2013.09.30.11.53.51;	author XWiki_2Eludovic;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2013.09.30.11.50.47;	author XWiki_2Eludovic;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+8.1
+log
+@Update translations
+@
+text
+@&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xwikidoc&gt;
+&lt;web&gt;Viewers&lt;/web&gt;
+&lt;name&gt;ViewersTranslations&lt;/name&gt;
+&lt;language&gt;&lt;/language&gt;
+&lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
+&lt;translation&gt;0&lt;/translation&gt;
+&lt;parent&gt;ViewersClass&lt;/parent&gt;
+&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
+&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;creationDate&gt;1380534647000&lt;/creationDate&gt;
+&lt;date&gt;1380549952000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380549952000&lt;/contentUpdateDate&gt;
+&lt;version&gt;8.1&lt;/version&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;defaultTemplate&gt;&lt;/defaultTemplate&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;comment&gt;Update translations&lt;/comment&gt;
+&lt;minorEdit&gt;false&lt;/minorEdit&gt;
+&lt;syntaxId&gt;xwiki/2.1&lt;/syntaxId&gt;
+&lt;hidden&gt;true&lt;/hidden&gt;
+&lt;object&gt;
+&lt;class&gt;
+&lt;name&gt;XWiki.TranslationDocumentClass&lt;/name&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;customMapping&gt;&lt;/customMapping&gt;
+&lt;defaultViewSheet&gt;&lt;/defaultViewSheet&gt;
+&lt;defaultEditSheet&gt;&lt;/defaultEditSheet&gt;
+&lt;defaultWeb&gt;&lt;/defaultWeb&gt;
+&lt;nameField&gt;&lt;/nameField&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;scope&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;scope&lt;/name&gt;
+&lt;number&gt;1&lt;/number&gt;
+&lt;prettyName&gt;Scope&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;GLOBAL|WIKI|USER|ON_DEMAND&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/scope&gt;
+&lt;/class&gt;
+&lt;name&gt;Viewers.ViewersTranslations&lt;/name&gt;
+&lt;number&gt;0&lt;/number&gt;
+&lt;className&gt;XWiki.TranslationDocumentClass&lt;/className&gt;
+&lt;guid&gt;1866eeac-6203-48e9-92de-4cd267a570a1&lt;/guid&gt;
+&lt;property&gt;
+&lt;scope&gt;ON_DEMAND&lt;/scope&gt;
+&lt;/property&gt;
+&lt;/object&gt;
+&lt;content&gt;# Class fields
+Viewers.ViewersClass_viewername=Viewer Name
+Viewers.ViewersClass_description=Description
+Viewers.ViewersClass_package=Package
+Viewers.ViewersClass_status=Status
+Viewers.ViewersClass_status_released=Released
+Viewers.ViewersClass_status_alpha=Alpha
+Viewers.ViewersClass_status_beta=Beta
+Viewers.ViewersClass_status_planned=Planned
+Viewers.ViewersClass_mode=Viewer Mode
+Viewers.ViewersClass_mode_edit=edit
+Viewers.ViewersClass_mode_view=view
+Viewers.ViewersClass_type=Viewer Type
+Viewers.ViewersClass_type_office=office
+Viewers.ViewersClass_type_other=other
+Viewers.ViewersClass_type_business=business
+Viewers.ViewersClass_type_drawing=drawing
+Viewers.ViewersClass_wrapperDeveloper=Viewer Wrapper Developer
+Viewers.ViewersClass_wrapperVersion=Viewer Wrapper Version
+Viewers.ViewersClass_wrapperLicence=Viewer Wrapper Licence
+Viewers.ViewersClass_sourcecodeurl=Viewer Wrapper Source Code URL
+Viewers.ViewersClass_developer=Viewer Developer
+Viewers.ViewersClass_version=Viewer Version
+Viewers.ViewersClass_licence=Viewer Licence
+Viewers.ViewersClass_url=Viewer URL
+Viewers.ViewersClass_details=Details
+
+# Live table generic keys
+viewers.livetable.doc.title=Page title
+viewers.livetable.doc.name=Page name
+viewers.livetable.doc.space=Space
+viewers.livetable.doc.fullname=Page full name
+viewers.livetable.doc.author=Last Author
+viewers.livetable.doc.creator=Creator
+viewers.livetable.doc.date=Update date
+viewers.livetable.doc.creationDate=Creation date
+viewers.livetable._avatar=Avatar
+viewers.livetable._images=Images
+viewers.livetable._attachments=Attachments
+viewers.livetable._actions=Actions
+viewers.livetable._actions.edit=Edit
+viewers.livetable._actions.delete=Delete
+viewers.livetable.emptyvalue=-
+
+# Live table specific keys
+viewers.livetable.viewername=Viewer Name
+viewers.livetable.description=Description
+viewers.livetable.package=Package
+viewers.livetable.status=Status
+viewers.livetable.mode=Viewer Mode
+viewers.livetable.type=Viewer Type
+viewers.livetable.wrapperDeveloper=Viewer Wrapper Developer
+viewers.livetable.wrapperVersion=Viewer Wrapper Version
+viewers.livetable.wrapperLicence=Viewer Wrapper Licence
+viewers.livetable.sourcecodeurl=Viewer Wrapper Source Code URL
+viewers.livetable.developer=Viewer Developer
+viewers.livetable.version=Viewer Version
+viewers.livetable.licence=Viewer Licence
+viewers.livetable.url=Viewer URL
+viewers.livetable.details=Details&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+7.1
+log
+@Update translations
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380549877000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380549877000&lt;/contentUpdateDate&gt;
+&lt;version&gt;7.1&lt;/version&gt;
+d62 1
+a84 1
+Viewers.ViewersClass_package=Package
+d106 1
+d118 1
+a118 2
+viewers.livetable.details=Details
+viewers.livetable.package=Package&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+6.1
+log
+@Update translations
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380549746000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380549746000&lt;/contentUpdateDate&gt;
+&lt;version&gt;6.1&lt;/version&gt;
+d84 1
+d117 2
+a118 1
+viewers.livetable.details=Details&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+5.1
+log
+@Update translations
+@
+text
+@&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xwikidoc&gt;
+&lt;web&gt;Viewers&lt;/web&gt;
+&lt;name&gt;ViewersTranslations&lt;/name&gt;
+&lt;language&gt;&lt;/language&gt;
+&lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
+&lt;translation&gt;0&lt;/translation&gt;
+&lt;parent&gt;ViewersClass&lt;/parent&gt;
+&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
+&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;creationDate&gt;1380534647000&lt;/creationDate&gt;
+&lt;date&gt;1380538770000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380538770000&lt;/contentUpdateDate&gt;
+&lt;version&gt;5.1&lt;/version&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;defaultTemplate&gt;&lt;/defaultTemplate&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;comment&gt;Update translations&lt;/comment&gt;
+&lt;minorEdit&gt;false&lt;/minorEdit&gt;
+&lt;syntaxId&gt;xwiki/2.1&lt;/syntaxId&gt;
+&lt;hidden&gt;true&lt;/hidden&gt;
+&lt;object&gt;
+&lt;class&gt;
+&lt;name&gt;XWiki.TranslationDocumentClass&lt;/name&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;customMapping&gt;&lt;/customMapping&gt;
+&lt;defaultViewSheet&gt;&lt;/defaultViewSheet&gt;
+&lt;defaultEditSheet&gt;&lt;/defaultEditSheet&gt;
+&lt;defaultWeb&gt;&lt;/defaultWeb&gt;
+&lt;nameField&gt;&lt;/nameField&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;scope&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;scope&lt;/name&gt;
+&lt;number&gt;1&lt;/number&gt;
+&lt;prettyName&gt;Scope&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;GLOBAL|WIKI|USER|ON_DEMAND&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/scope&gt;
+&lt;/class&gt;
+&lt;name&gt;Viewers.ViewersTranslations&lt;/name&gt;
+&lt;number&gt;0&lt;/number&gt;
+&lt;className&gt;XWiki.TranslationDocumentClass&lt;/className&gt;
+&lt;guid&gt;1866eeac-6203-48e9-92de-4cd267a570a1&lt;/guid&gt;
+&lt;property&gt;
+&lt;scope&gt;ON_DEMAND&lt;/scope&gt;
+&lt;/property&gt;
+&lt;/object&gt;
+&lt;content&gt;# Class fields
+Viewers.ViewersClass_viewername=Viewer Name
+Viewers.ViewersClass_description=Description
+Viewers.ViewersClass_status=Status
+Viewers.ViewersClass_status_released=Released
+Viewers.ViewersClass_status_alpha=Alpha
+Viewers.ViewersClass_status_beta=Beta
+Viewers.ViewersClass_status_planned=Planned
+Viewers.ViewersClass_mode=Viewer Mode
+Viewers.ViewersClass_mode_edit=edit
+Viewers.ViewersClass_mode_view=view
+Viewers.ViewersClass_type=Viewer Type
+Viewers.ViewersClass_type_office=office
+Viewers.ViewersClass_type_other=other
+Viewers.ViewersClass_type_business=business
+Viewers.ViewersClass_type_drawing=drawing
+Viewers.ViewersClass_wrapperDeveloper=Viewer Wrapper Developer
+Viewers.ViewersClass_wrapperLicence=Viewer Wrapper Licence
+Viewers.ViewersClass_sourcecodeurl=Viewer Wrapper Source Code URL
+Viewers.ViewersClass_developer=Viewer Developer
+Viewers.ViewersClass_licence=Viewer Licence
+Viewers.ViewersClass_url=Viewer URL
+Viewers.ViewersClass_details=Details
+
+# Live table generic keys
+viewers.livetable.doc.title=Page title
+viewers.livetable.doc.name=Page name
+viewers.livetable.doc.space=Space
+viewers.livetable.doc.fullname=Page full name
+viewers.livetable.doc.author=Last Author
+viewers.livetable.doc.creator=Creator
+viewers.livetable.doc.date=Update date
+viewers.livetable.doc.creationDate=Creation date
+viewers.livetable._avatar=Avatar
+viewers.livetable._images=Images
+viewers.livetable._attachments=Attachments
+viewers.livetable._actions=Actions
+viewers.livetable._actions.edit=Edit
+viewers.livetable._actions.delete=Delete
+viewers.livetable.emptyvalue=-
+
+# Live table specific keys
+viewers.livetable.viewername=Viewer Name
+viewers.livetable.description=Description
+viewers.livetable.status=Status
+viewers.livetable.mode=Viewer Mode
+viewers.livetable.type=Viewer Type
+viewers.livetable.wrapperDeveloper=Viewer Wrapper Developer
+viewers.livetable.wrapperLicence=Viewer Wrapper Licence
+viewers.livetable.sourcecodeurl=Viewer Wrapper Source Code URL
+viewers.livetable.developer=Viewer Developer
+viewers.livetable.licence=Viewer Licence
+viewers.livetable.url=Viewer URL
+viewers.livetable.details=Details&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+4.1
+log
+@Update translations
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380538260000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380538260000&lt;/contentUpdateDate&gt;
+&lt;version&gt;4.1&lt;/version&gt;
+d62 5
+d103 1
+@
+
+
+3.1
+log
+@Update translations
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380537311000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380537311000&lt;/contentUpdateDate&gt;
+&lt;version&gt;3.1&lt;/version&gt;
+d70 6
+a75 4
+Viewers.ViewersClass_developer=Developer
+Viewers.ViewersClass_licence=Licence
+Viewers.ViewersClass_sourcecodeurl=Source Code URL
+Viewers.ViewersClass_url=URL
+d100 6
+a105 4
+viewers.livetable.developer=Developer
+viewers.livetable.licence=Licence
+viewers.livetable.sourcecodeurl=Source Code URL
+viewers.livetable.url=URL
+@
+
+
+2.1
+log
+@Update translations
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380534831000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380534831000&lt;/contentUpdateDate&gt;
+&lt;version&gt;2.1&lt;/version&gt;
+d61 1
+d72 2
+d95 1
+d100 2
+@
+
+
+1.1
+log
+@Update translations
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380534647000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380534647000&lt;/contentUpdateDate&gt;
+&lt;version&gt;1.1&lt;/version&gt;
+d61 3
+d92 1
+@
+</versions></xwikidoc>

@@ -1,0 +1,2193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Viewers</web>
+<name>ViewersSheet</name>
+<language></language>
+<defaultLanguage></defaultLanguage>
+<translation>0</translation>
+<parent>ViewersClass</parent>
+<creator>XWiki.ludovic</creator>
+<author>XWiki.ludovic</author>
+<customClass></customClass>
+<contentAuthor>XWiki.ludovic</contentAuthor>
+<creationDate>1380534646000</creationDate>
+<date>1380551509000</date>
+<contentUpdateDate>1380551248000</contentUpdateDate>
+<version>14.26</version>
+<title></title>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>true</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>true</hidden>
+<object>
+<class>
+<name>XWiki.StyleSheetExtension</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<cache>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>cache</name>
+<number>5</number>
+<prettyName>Caching policy</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>long|short|default|forbid</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</cache>
+<code>
+<disabled>0</disabled>
+<name>code</name>
+<number>2</number>
+<prettyName>Code</prettyName>
+<rows>20</rows>
+<size>50</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</code>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parse>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>parse</name>
+<number>4</number>
+<prettyName>Parse content</prettyName>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</parse>
+<use>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>use</name>
+<number>3</number>
+<prettyName>Use this extension</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</use>
+</class>
+<name>Viewers.ViewersSheet</name>
+<number>0</number>
+<className>XWiki.StyleSheetExtension</className>
+<guid>38a21bed-998b-411c-9bd5-b431d1c4db49</guid>
+<property>
+<cache>long</cache>
+</property>
+<property>
+<code>.viewers-link:before {
+    background: none repeat scroll 0 0 #66BB44;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 0 1px 2px #FFFFFF inset, 0 2px 5px #000000 inset, 0 0 2px #000000, 0 0 1px 1px rgba(0, 0, 0, 0.5);
+    content: "↡";
+    display: inline-block;
+    font-weight: 900;
+    margin-right: 4px;
+    padding: 3px 6px;
+}
+
+.viewers-link {
+  color: white;
+  background: -moz-linear-gradient(center top , #5B86B1 0px, #78A7E5 30px) repeat scroll 0 0 #78A7E5;
+  border-radius: 18px 18px 18px 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(255, 255, 255, 0.8) inset, 0 0 1px 1px rgba(0, 0, 0, 0.3);
+  font-size: 1em;
+  font-weight: bold;
+  padding: 20px;
+  margin: 0 0 1em 1em;
+  margin-top: 20px;
+  margin-left: 50px;
+  display: inline-block;
+  text-transform: uppercase;
+  color: white;
+}
+
+a.viewers-link:link, a.viewers-link:active, a.viewers-link:hover, a.viewers-link:visited {
+  color: white;
+}
+} </code>
+</property>
+<property>
+<name>Viewers CSS</name>
+</property>
+<property>
+<parse>0</parse>
+</property>
+<property>
+<use>onDemand</use>
+</property>
+</object>
+<content>{{velocity}}
+{{html wiki="true"}}
+#set($ok = $xwiki.ssx.use("Viewers.ViewersSheet"))
+#set($discard = $doc.use('Viewers.ViewersClass'))
+#set($discard = $services.localization.use('document', 'Viewers.ViewersTranslations'))
+#set($package = $doc.getValue("package"))
+(% class="xform half" style="float: left;" %)
+(((
+  ; &lt;label for="Viewers.ViewersClass_0_viewername"&gt;$escapetool.xml($doc.displayPrettyName('viewername', false, false))&lt;/label&gt;
+  : $doc.display('viewername')
+  ; &lt;label for="Viewers.ViewersClass_0_description"&gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&lt;/label&gt;
+  : $doc.display('description')
+  ; &lt;label for="Viewers.ViewersClass_0_package"&gt;$escapetool.xml($doc.displayPrettyName('package', false, false))&lt;/label&gt;
+  : $doc.display('package')
+  ; &lt;label for="Viewers.ViewersClass_0_status"&gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&lt;/label&gt;
+  : $doc.display('status')
+  ; &lt;label for="Viewers.ViewersClass_0_mode"&gt;$escapetool.xml($doc.displayPrettyName('mode', false, false))&lt;/label&gt;
+  : $doc.display('mode')
+  ; &lt;label for="Viewers.ViewersClass_0_type"&gt;$escapetool.xml($doc.displayPrettyName('type', false, false))&lt;/label&gt;
+  : $doc.display('type')
+  #if($package &amp;&amp; $package!="")
+(% class="viewers-download" %)
+(((
+[[Download this WebViewer&gt;&gt;${package}||class="viewers-link viewers-download"]]
+)))
+#end
+)))
+(% class="xform half" style="float: right;" %)
+(((
+  ; &lt;label for="Viewers.ViewersClass_0_wrapperDeveloper"&gt;$escapetool.xml($doc.displayPrettyName('wrapperDeveloper', false, false))&lt;/label&gt;
+  : $doc.display('wrapperDeveloper')
+  ; &lt;label for="Viewers.ViewersClass_0_wrapperVersion"&gt;$escapetool.xml($doc.displayPrettyName('wrapperVersion', false, false))&lt;/label&gt;
+  : $doc.display('wrapperVersion')
+  ; &lt;label for="Viewers.ViewersClass_0_wrapperLicence"&gt;$escapetool.xml($doc.displayPrettyName('wrapperLicence', false, false))&lt;/label&gt;
+  : $doc.display('wrapperLicence')
+  ; &lt;label for="Viewers.ViewersClass_0_sourcecodeurl"&gt;$escapetool.xml($doc.displayPrettyName('sourcecodeurl', false, false))&lt;/label&gt;
+  : $doc.display('sourcecodeurl')
+  ; &lt;label for="Viewers.ViewersClass_0_developer"&gt;$escapetool.xml($doc.displayPrettyName('developer', false, false))&lt;/label&gt;
+  : $doc.display('developer')
+  ; &lt;label for="Viewers.ViewersClass_0_version"&gt;$escapetool.xml($doc.displayPrettyName('version', false, false))&lt;/label&gt;
+  : $doc.display('version')
+  ; &lt;label for="Viewers.ViewersClass_0_licence"&gt;$escapetool.xml($doc.displayPrettyName('licence', false, false))&lt;/label&gt;
+  : $doc.display('licence')
+  ; &lt;label for="Viewers.ViewersClass_0_url"&gt;$escapetool.xml($doc.displayPrettyName('url', false, false))&lt;/label&gt;
+  : $doc.display('url')
+)))
+(% class="clearfloats" %)
+((()))
+(% class="xform" %)
+(((
+  ; &lt;label for="Viewers.ViewersClass_0_details"&gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&lt;/label&gt;
+  : $doc.display('details')
+)))
+{{/html}}
+{{/velocity}}</content>
+<versions>head	14.26;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+14.26
+date	2013.09.30.16.31.49;	author XWiki_2Eludovic;	state full;
+branches;
+next	14.25;
+
+14.25
+date	2013.09.30.16.31.19;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.24;
+
+14.24
+date	2013.09.30.16.29.38;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.23;
+
+14.23
+date	2013.09.30.16.29.09;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.22;
+
+14.22
+date	2013.09.30.16.27.59;	author XWiki_2Eludovic;	state full;
+branches;
+next	14.21;
+
+14.21
+date	2013.09.30.16.27.28;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.20;
+
+14.20
+date	2013.09.30.16.26.28;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.19;
+
+14.19
+date	2013.09.30.16.25.48;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.18;
+
+14.18
+date	2013.09.30.16.25.24;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.17;
+
+14.17
+date	2013.09.30.16.24.48;	author XWiki_2Eludovic;	state full;
+branches;
+next	14.16;
+
+14.16
+date	2013.09.30.16.24.29;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.15;
+
+14.15
+date	2013.09.30.16.24.12;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.14;
+
+14.14
+date	2013.09.30.16.23.53;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.13;
+
+14.13
+date	2013.09.30.16.23.22;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.12;
+
+14.12
+date	2013.09.30.16.22.51;	author XWiki_2Eludovic;	state full;
+branches;
+next	14.11;
+
+14.11
+date	2013.09.30.16.22.30;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.10;
+
+14.10
+date	2013.09.30.16.21.39;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.9;
+
+14.9
+date	2013.09.30.16.21.18;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.8;
+
+14.8
+date	2013.09.30.16.21.10;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.7;
+
+14.7
+date	2013.09.30.16.20.59;	author XWiki_2Eludovic;	state full;
+branches;
+next	14.6;
+
+14.6
+date	2013.09.30.16.20.51;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.5;
+
+14.5
+date	2013.09.30.16.20.00;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.4;
+
+14.4
+date	2013.09.30.16.19.47;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.3;
+
+14.3
+date	2013.09.30.16.19.12;	author XWiki_2Eludovic;	state diff;
+branches;
+next	14.2;
+
+14.2
+date	2013.09.30.16.18.18;	author XWiki_2Eludovic;	state full;
+branches;
+next	14.1;
+
+14.1
+date	2013.09.30.16.13.40;	author XWiki_2Eludovic;	state diff;
+branches;
+next	13.1;
+
+13.1
+date	2013.09.30.16.13.14;	author XWiki_2Eludovic;	state diff;
+branches;
+next	12.1;
+
+12.1
+date	2013.09.30.16.12.51;	author XWiki_2Eludovic;	state diff;
+branches;
+next	11.1;
+
+11.1
+date	2013.09.30.16.12.02;	author XWiki_2Eludovic;	state diff;
+branches;
+next	10.1;
+
+10.1
+date	2013.09.30.16.11.09;	author XWiki_2Eludovic;	state full;
+branches;
+next	9.1;
+
+9.1
+date	2013.09.30.16.10.49;	author XWiki_2Eludovic;	state diff;
+branches;
+next	8.1;
+
+8.1
+date	2013.09.30.16.05.52;	author XWiki_2Eludovic;	state diff;
+branches;
+next	7.1;
+
+7.1
+date	2013.09.30.16.04.37;	author XWiki_2Eludovic;	state diff;
+branches;
+next	6.1;
+
+6.1
+date	2013.09.30.16.02.26;	author XWiki_2Eludovic;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2013.09.30.12.59.25;	author XWiki_2Eludovic;	state full;
+branches;
+next	4.1;
+
+4.1
+date	2013.09.30.12.50.59;	author XWiki_2Eludovic;	state diff;
+branches;
+next	3.1;
+
+3.1
+date	2013.09.30.12.35.02;	author XWiki_2Eludovic;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2013.09.30.11.53.46;	author XWiki_2Eludovic;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2013.09.30.11.50.46;	author XWiki_2Eludovic;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+14.26
+log
+@@
+text
+@&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xwikidoc&gt;
+&lt;web&gt;Viewers&lt;/web&gt;
+&lt;name&gt;ViewersSheet&lt;/name&gt;
+&lt;language&gt;&lt;/language&gt;
+&lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
+&lt;translation&gt;0&lt;/translation&gt;
+&lt;parent&gt;ViewersClass&lt;/parent&gt;
+&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
+&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;creationDate&gt;1380534646000&lt;/creationDate&gt;
+&lt;date&gt;1380551509000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380551248000&lt;/contentUpdateDate&gt;
+&lt;version&gt;14.26&lt;/version&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;defaultTemplate&gt;&lt;/defaultTemplate&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;comment&gt;&lt;/comment&gt;
+&lt;minorEdit&gt;true&lt;/minorEdit&gt;
+&lt;syntaxId&gt;xwiki/2.1&lt;/syntaxId&gt;
+&lt;hidden&gt;true&lt;/hidden&gt;
+&lt;object&gt;
+&lt;class&gt;
+&lt;name&gt;XWiki.StyleSheetExtension&lt;/name&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;customMapping&gt;&lt;/customMapping&gt;
+&lt;defaultViewSheet&gt;&lt;/defaultViewSheet&gt;
+&lt;defaultEditSheet&gt;&lt;/defaultEditSheet&gt;
+&lt;defaultWeb&gt;&lt;/defaultWeb&gt;
+&lt;nameField&gt;&lt;/nameField&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;cache&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;cache&lt;/name&gt;
+&lt;number&gt;5&lt;/number&gt;
+&lt;prettyName&gt;Caching policy&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;long|short|default|forbid&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/cache&gt;
+&lt;code&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;code&lt;/name&gt;
+&lt;number&gt;2&lt;/number&gt;
+&lt;prettyName&gt;Code&lt;/prettyName&gt;
+&lt;rows&gt;20&lt;/rows&gt;
+&lt;size&gt;50&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.TextAreaClass&lt;/classType&gt;
+&lt;/code&gt;
+&lt;name&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;name&lt;/name&gt;
+&lt;number&gt;1&lt;/number&gt;
+&lt;prettyName&gt;Name&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/name&gt;
+&lt;parse&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayFormType&gt;select&lt;/displayFormType&gt;
+&lt;displayType&gt;yesno&lt;/displayType&gt;
+&lt;name&gt;parse&lt;/name&gt;
+&lt;number&gt;4&lt;/number&gt;
+&lt;prettyName&gt;Parse content&lt;/prettyName&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.BooleanClass&lt;/classType&gt;
+&lt;/parse&gt;
+&lt;use&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;use&lt;/name&gt;
+&lt;number&gt;3&lt;/number&gt;
+&lt;prettyName&gt;Use this extension&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;currentPage=Always on this page|onDemand=On demand|always=Always on this wiki&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/use&gt;
+&lt;/class&gt;
+&lt;name&gt;Viewers.ViewersSheet&lt;/name&gt;
+&lt;number&gt;0&lt;/number&gt;
+&lt;className&gt;XWiki.StyleSheetExtension&lt;/className&gt;
+&lt;guid&gt;38a21bed-998b-411c-9bd5-b431d1c4db49&lt;/guid&gt;
+&lt;property&gt;
+&lt;cache&gt;long&lt;/cache&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;code&gt;.viewers-link:before {
+    background: none repeat scroll 0 0 #66BB44;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 0 1px 2px #FFFFFF inset, 0 2px 5px #000000 inset, 0 0 2px #000000, 0 0 1px 1px rgba(0, 0, 0, 0.5);
+    content: "↡";
+    display: inline-block;
+    font-weight: 900;
+    margin-right: 4px;
+    padding: 3px 6px;
+}
+
+.viewers-link {
+  color: white;
+  background: -moz-linear-gradient(center top , #5B86B1 0px, #78A7E5 30px) repeat scroll 0 0 #78A7E5;
+  border-radius: 18px 18px 18px 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(255, 255, 255, 0.8) inset, 0 0 1px 1px rgba(0, 0, 0, 0.3);
+  font-size: 1em;
+  font-weight: bold;
+  padding: 20px;
+  margin: 0 0 1em 1em;
+  margin-top: 20px;
+  margin-left: 50px;
+  display: inline-block;
+  text-transform: uppercase;
+  color: white;
+}
+
+a.viewers-link:link, a.viewers-link:active, a.viewers-link:hover, a.viewers-link:visited {
+  color: white;
+}
+} &lt;/code&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;name&gt;Viewers CSS&lt;/name&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;parse&gt;0&lt;/parse&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;use&gt;onDemand&lt;/use&gt;
+&lt;/property&gt;
+&lt;/object&gt;
+&lt;content&gt;{{velocity}}
+{{html wiki="true"}}
+#set($ok = $xwiki.ssx.use("Viewers.ViewersSheet"))
+#set($discard = $doc.use('Viewers.ViewersClass'))
+#set($discard = $services.localization.use('document', 'Viewers.ViewersTranslations'))
+#set($package = $doc.getValue("package"))
+(% class="xform half" style="float: left;" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_viewername"&amp;gt;$escapetool.xml($doc.displayPrettyName('viewername', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('viewername')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_description"&amp;gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('description')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_package"&amp;gt;$escapetool.xml($doc.displayPrettyName('package', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('package')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_status"&amp;gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('status')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_mode"&amp;gt;$escapetool.xml($doc.displayPrettyName('mode', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('mode')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_type"&amp;gt;$escapetool.xml($doc.displayPrettyName('type', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('type')
+  #if($package &amp;amp;&amp;amp; $package!="")
+(% class="viewers-download" %)
+(((
+[[Download this WebViewer&amp;gt;&amp;gt;${package}||class="viewers-link viewers-download"]]
+)))
+#end
+)))
+(% class="xform half" style="float: right;" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperDeveloper"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperDeveloper', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperDeveloper')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperVersion"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperVersion', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperVersion')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperLicence"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperLicence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperLicence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_sourcecodeurl"&amp;gt;$escapetool.xml($doc.displayPrettyName('sourcecodeurl', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('sourcecodeurl')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_developer"&amp;gt;$escapetool.xml($doc.displayPrettyName('developer', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('developer')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_version"&amp;gt;$escapetool.xml($doc.displayPrettyName('version', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('version')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_licence"&amp;gt;$escapetool.xml($doc.displayPrettyName('licence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('licence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_url"&amp;gt;$escapetool.xml($doc.displayPrettyName('url', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('url')
+)))
+(% class="clearfloats" %)
+((()))
+(% class="xform" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_details"&amp;gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('details')
+)))
+{{/html}}
+{{/velocity}}&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+14.25
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380551479000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;14.25&lt;/version&gt;
+d131 1
+a131 1
+a.viewers-link:active, a.viewers-link:hover, a.viewers-link:visited {
+@
+
+
+14.24
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380551378000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;14.24&lt;/version&gt;
+d128 7
+a134 1
+}&lt;/code&gt;
+@
+
+
+14.23
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380551349000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;14.23&lt;/version&gt;
+d124 2
+@
+
+
+14.22
+log
+@@
+text
+@&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xwikidoc&gt;
+&lt;web&gt;Viewers&lt;/web&gt;
+&lt;name&gt;ViewersSheet&lt;/name&gt;
+&lt;language&gt;&lt;/language&gt;
+&lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
+&lt;translation&gt;0&lt;/translation&gt;
+&lt;parent&gt;ViewersClass&lt;/parent&gt;
+&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
+&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;creationDate&gt;1380534646000&lt;/creationDate&gt;
+&lt;date&gt;1380551279000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380551248000&lt;/contentUpdateDate&gt;
+&lt;version&gt;14.22&lt;/version&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;defaultTemplate&gt;&lt;/defaultTemplate&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;comment&gt;&lt;/comment&gt;
+&lt;minorEdit&gt;true&lt;/minorEdit&gt;
+&lt;syntaxId&gt;xwiki/2.1&lt;/syntaxId&gt;
+&lt;hidden&gt;true&lt;/hidden&gt;
+&lt;object&gt;
+&lt;class&gt;
+&lt;name&gt;XWiki.StyleSheetExtension&lt;/name&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;customMapping&gt;&lt;/customMapping&gt;
+&lt;defaultViewSheet&gt;&lt;/defaultViewSheet&gt;
+&lt;defaultEditSheet&gt;&lt;/defaultEditSheet&gt;
+&lt;defaultWeb&gt;&lt;/defaultWeb&gt;
+&lt;nameField&gt;&lt;/nameField&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;cache&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;cache&lt;/name&gt;
+&lt;number&gt;5&lt;/number&gt;
+&lt;prettyName&gt;Caching policy&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;long|short|default|forbid&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/cache&gt;
+&lt;code&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;code&lt;/name&gt;
+&lt;number&gt;2&lt;/number&gt;
+&lt;prettyName&gt;Code&lt;/prettyName&gt;
+&lt;rows&gt;20&lt;/rows&gt;
+&lt;size&gt;50&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.TextAreaClass&lt;/classType&gt;
+&lt;/code&gt;
+&lt;name&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;name&lt;/name&gt;
+&lt;number&gt;1&lt;/number&gt;
+&lt;prettyName&gt;Name&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/name&gt;
+&lt;parse&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayFormType&gt;select&lt;/displayFormType&gt;
+&lt;displayType&gt;yesno&lt;/displayType&gt;
+&lt;name&gt;parse&lt;/name&gt;
+&lt;number&gt;4&lt;/number&gt;
+&lt;prettyName&gt;Parse content&lt;/prettyName&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.BooleanClass&lt;/classType&gt;
+&lt;/parse&gt;
+&lt;use&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;use&lt;/name&gt;
+&lt;number&gt;3&lt;/number&gt;
+&lt;prettyName&gt;Use this extension&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;currentPage=Always on this page|onDemand=On demand|always=Always on this wiki&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/use&gt;
+&lt;/class&gt;
+&lt;name&gt;Viewers.ViewersSheet&lt;/name&gt;
+&lt;number&gt;0&lt;/number&gt;
+&lt;className&gt;XWiki.StyleSheetExtension&lt;/className&gt;
+&lt;guid&gt;38a21bed-998b-411c-9bd5-b431d1c4db49&lt;/guid&gt;
+&lt;property&gt;
+&lt;cache&gt;long&lt;/cache&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;code&gt;.viewers-link:before {
+    background: none repeat scroll 0 0 #66BB44;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 0 1px 2px #FFFFFF inset, 0 2px 5px #000000 inset, 0 0 2px #000000, 0 0 1px 1px rgba(0, 0, 0, 0.5);
+    content: "↡";
+    display: inline-block;
+    font-weight: 900;
+    margin-right: 4px;
+    padding: 3px 6px;
+}
+
+.viewers-link {
+  color: white;
+  background: -moz-linear-gradient(center top , #5B86B1 0px, #78A7E5 30px) repeat scroll 0 0 #78A7E5;
+  border-radius: 18px 18px 18px 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(255, 255, 255, 0.8) inset, 0 0 1px 1px rgba(0, 0, 0, 0.3);
+  font-size: 1em;
+  font-weight: bold;
+  padding: 20px;
+  margin: 0 0 1em 1em;
+  margin-top: 100px;
+  text-transform: uppercase;
+}&lt;/code&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;name&gt;Viewers CSS&lt;/name&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;parse&gt;0&lt;/parse&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;use&gt;onDemand&lt;/use&gt;
+&lt;/property&gt;
+&lt;/object&gt;
+&lt;content&gt;{{velocity}}
+{{html wiki="true"}}
+#set($ok = $xwiki.ssx.use("Viewers.ViewersSheet"))
+#set($discard = $doc.use('Viewers.ViewersClass'))
+#set($discard = $services.localization.use('document', 'Viewers.ViewersTranslations'))
+#set($package = $doc.getValue("package"))
+(% class="xform half" style="float: left;" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_viewername"&amp;gt;$escapetool.xml($doc.displayPrettyName('viewername', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('viewername')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_description"&amp;gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('description')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_package"&amp;gt;$escapetool.xml($doc.displayPrettyName('package', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('package')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_status"&amp;gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('status')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_mode"&amp;gt;$escapetool.xml($doc.displayPrettyName('mode', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('mode')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_type"&amp;gt;$escapetool.xml($doc.displayPrettyName('type', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('type')
+  #if($package &amp;amp;&amp;amp; $package!="")
+(% class="viewers-download" %)
+(((
+[[Download this WebViewer&amp;gt;&amp;gt;${package}||class="viewers-link viewers-download"]]
+)))
+#end
+)))
+(% class="xform half" style="float: right;" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperDeveloper"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperDeveloper', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperDeveloper')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperVersion"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperVersion', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperVersion')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperLicence"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperLicence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperLicence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_sourcecodeurl"&amp;gt;$escapetool.xml($doc.displayPrettyName('sourcecodeurl', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('sourcecodeurl')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_developer"&amp;gt;$escapetool.xml($doc.displayPrettyName('developer', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('developer')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_version"&amp;gt;$escapetool.xml($doc.displayPrettyName('version', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('version')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_licence"&amp;gt;$escapetool.xml($doc.displayPrettyName('licence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('licence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_url"&amp;gt;$escapetool.xml($doc.displayPrettyName('url', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('url')
+)))
+(% class="clearfloats" %)
+((()))
+(% class="xform" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_details"&amp;gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('details')
+)))
+{{/html}}
+{{/velocity}}&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+14.21
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380551248000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;14.21&lt;/version&gt;
+d124 1
+a124 1
+  margin-top: 50px;
+@
+
+
+14.20
+log
+@@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380551188000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380551148000&lt;/contentUpdateDate&gt;
+&lt;version&gt;14.20&lt;/version&gt;
+d158 1
+a158 4
+)))
+(% class="xform half" style="float: right;" %)
+(((
+#if($package &amp;amp;&amp;amp; $package!="")
+d164 3
+@
+
+
+14.19
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380551148000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;14.19&lt;/version&gt;
+d124 1
+@
+
+
+14.18
+log
+@@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380551124000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380551052000&lt;/contentUpdateDate&gt;
+&lt;version&gt;14.18&lt;/version&gt;
+d183 2
+@
+
+
+14.17
+log
+@@
+text
+@&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xwikidoc&gt;
+&lt;web&gt;Viewers&lt;/web&gt;
+&lt;name&gt;ViewersSheet&lt;/name&gt;
+&lt;language&gt;&lt;/language&gt;
+&lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
+&lt;translation&gt;0&lt;/translation&gt;
+&lt;parent&gt;ViewersClass&lt;/parent&gt;
+&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
+&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;creationDate&gt;1380534646000&lt;/creationDate&gt;
+&lt;date&gt;1380551088000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380551052000&lt;/contentUpdateDate&gt;
+&lt;version&gt;14.17&lt;/version&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;defaultTemplate&gt;&lt;/defaultTemplate&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;comment&gt;&lt;/comment&gt;
+&lt;minorEdit&gt;true&lt;/minorEdit&gt;
+&lt;syntaxId&gt;xwiki/2.1&lt;/syntaxId&gt;
+&lt;hidden&gt;true&lt;/hidden&gt;
+&lt;object&gt;
+&lt;class&gt;
+&lt;name&gt;XWiki.StyleSheetExtension&lt;/name&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;customMapping&gt;&lt;/customMapping&gt;
+&lt;defaultViewSheet&gt;&lt;/defaultViewSheet&gt;
+&lt;defaultEditSheet&gt;&lt;/defaultEditSheet&gt;
+&lt;defaultWeb&gt;&lt;/defaultWeb&gt;
+&lt;nameField&gt;&lt;/nameField&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;cache&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;cache&lt;/name&gt;
+&lt;number&gt;5&lt;/number&gt;
+&lt;prettyName&gt;Caching policy&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;long|short|default|forbid&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/cache&gt;
+&lt;code&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;code&lt;/name&gt;
+&lt;number&gt;2&lt;/number&gt;
+&lt;prettyName&gt;Code&lt;/prettyName&gt;
+&lt;rows&gt;20&lt;/rows&gt;
+&lt;size&gt;50&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.TextAreaClass&lt;/classType&gt;
+&lt;/code&gt;
+&lt;name&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;name&lt;/name&gt;
+&lt;number&gt;1&lt;/number&gt;
+&lt;prettyName&gt;Name&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/name&gt;
+&lt;parse&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayFormType&gt;select&lt;/displayFormType&gt;
+&lt;displayType&gt;yesno&lt;/displayType&gt;
+&lt;name&gt;parse&lt;/name&gt;
+&lt;number&gt;4&lt;/number&gt;
+&lt;prettyName&gt;Parse content&lt;/prettyName&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.BooleanClass&lt;/classType&gt;
+&lt;/parse&gt;
+&lt;use&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;use&lt;/name&gt;
+&lt;number&gt;3&lt;/number&gt;
+&lt;prettyName&gt;Use this extension&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;currentPage=Always on this page|onDemand=On demand|always=Always on this wiki&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/use&gt;
+&lt;/class&gt;
+&lt;name&gt;Viewers.ViewersSheet&lt;/name&gt;
+&lt;number&gt;0&lt;/number&gt;
+&lt;className&gt;XWiki.StyleSheetExtension&lt;/className&gt;
+&lt;guid&gt;38a21bed-998b-411c-9bd5-b431d1c4db49&lt;/guid&gt;
+&lt;property&gt;
+&lt;cache&gt;long&lt;/cache&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;code&gt;.viewers-link:before {
+    background: none repeat scroll 0 0 #66BB44;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 0 1px 2px #FFFFFF inset, 0 2px 5px #000000 inset, 0 0 2px #000000, 0 0 1px 1px rgba(0, 0, 0, 0.5);
+    content: "↡";
+    display: inline-block;
+    font-weight: 900;
+    margin-right: 4px;
+    padding: 3px 6px;
+}
+
+.viewers-link {
+  color: white;
+  background: -moz-linear-gradient(center top , #5B86B1 0px, #78A7E5 30px) repeat scroll 0 0 #78A7E5;
+  border-radius: 18px 18px 18px 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(255, 255, 255, 0.8) inset, 0 0 1px 1px rgba(0, 0, 0, 0.3);
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0 0 1em 1em;
+  margin-right: 200px;
+  text-transform: uppercase;
+}&lt;/code&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;name&gt;Viewers CSS&lt;/name&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;parse&gt;0&lt;/parse&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;use&gt;onDemand&lt;/use&gt;
+&lt;/property&gt;
+&lt;/object&gt;
+&lt;content&gt;{{velocity}}
+{{html wiki="true"}}
+#set($ok = $xwiki.ssx.use("Viewers.ViewersSheet"))
+#set($discard = $doc.use('Viewers.ViewersClass'))
+#set($discard = $services.localization.use('document', 'Viewers.ViewersTranslations'))
+#set($package = $doc.getValue("package"))
+(% class="xform half" style="float: left;" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_viewername"&amp;gt;$escapetool.xml($doc.displayPrettyName('viewername', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('viewername')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_description"&amp;gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('description')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_package"&amp;gt;$escapetool.xml($doc.displayPrettyName('package', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('package')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_status"&amp;gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('status')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_mode"&amp;gt;$escapetool.xml($doc.displayPrettyName('mode', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('mode')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_type"&amp;gt;$escapetool.xml($doc.displayPrettyName('type', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('type')
+)))
+(% class="xform half" style="float: right;" %)
+(((
+#if($package &amp;amp;&amp;amp; $package!="")
+(% class="viewers-download" %)
+(((
+[[Download this WebViewer&amp;gt;&amp;gt;${package}||class="viewers-link viewers-download"]]
+)))
+#end
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperDeveloper"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperDeveloper', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperDeveloper')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperVersion"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperVersion', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperVersion')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperLicence"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperLicence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperLicence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_sourcecodeurl"&amp;gt;$escapetool.xml($doc.displayPrettyName('sourcecodeurl', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('sourcecodeurl')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_developer"&amp;gt;$escapetool.xml($doc.displayPrettyName('developer', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('developer')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_version"&amp;gt;$escapetool.xml($doc.displayPrettyName('version', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('version')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_licence"&amp;gt;$escapetool.xml($doc.displayPrettyName('licence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('licence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_url"&amp;gt;$escapetool.xml($doc.displayPrettyName('url', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('url')
+)))
+(% class="xform" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_details"&amp;gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('details')
+)))
+{{/html}}
+{{/velocity}}&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+14.16
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380551069000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;14.16&lt;/version&gt;
+a121 1
+  padding: 20px;
+@
+
+
+14.15
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380551052000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;14.15&lt;/version&gt;
+a119 1
+  float: right;
+@
+
+
+14.14
+log
+@@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380551033000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380551033000&lt;/contentUpdateDate&gt;
+&lt;version&gt;14.14&lt;/version&gt;
+d145 1
+a145 1
+(% class="xform half" %)
+@
+
+
+14.13
+log
+@@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380551002000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380551002000&lt;/contentUpdateDate&gt;
+&lt;version&gt;14.13&lt;/version&gt;
+a144 6
+#if($package &amp;amp;&amp;amp; $package!="")
+(% class="viewers-download" %)
+(((
+[[Download this WebViewer&amp;gt;&amp;gt;${package}||class="viewers-link viewers-download"]]
+)))
+#end
+d162 6
+@
+
+
+14.12
+log
+@@
+text
+@&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xwikidoc&gt;
+&lt;web&gt;Viewers&lt;/web&gt;
+&lt;name&gt;ViewersSheet&lt;/name&gt;
+&lt;language&gt;&lt;/language&gt;
+&lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
+&lt;translation&gt;0&lt;/translation&gt;
+&lt;parent&gt;ViewersClass&lt;/parent&gt;
+&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
+&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;creationDate&gt;1380534646000&lt;/creationDate&gt;
+&lt;date&gt;1380550971000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380550971000&lt;/contentUpdateDate&gt;
+&lt;version&gt;14.12&lt;/version&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;defaultTemplate&gt;&lt;/defaultTemplate&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;comment&gt;&lt;/comment&gt;
+&lt;minorEdit&gt;true&lt;/minorEdit&gt;
+&lt;syntaxId&gt;xwiki/2.1&lt;/syntaxId&gt;
+&lt;hidden&gt;true&lt;/hidden&gt;
+&lt;object&gt;
+&lt;class&gt;
+&lt;name&gt;XWiki.StyleSheetExtension&lt;/name&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;customMapping&gt;&lt;/customMapping&gt;
+&lt;defaultViewSheet&gt;&lt;/defaultViewSheet&gt;
+&lt;defaultEditSheet&gt;&lt;/defaultEditSheet&gt;
+&lt;defaultWeb&gt;&lt;/defaultWeb&gt;
+&lt;nameField&gt;&lt;/nameField&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;cache&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;cache&lt;/name&gt;
+&lt;number&gt;5&lt;/number&gt;
+&lt;prettyName&gt;Caching policy&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;long|short|default|forbid&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/cache&gt;
+&lt;code&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;code&lt;/name&gt;
+&lt;number&gt;2&lt;/number&gt;
+&lt;prettyName&gt;Code&lt;/prettyName&gt;
+&lt;rows&gt;20&lt;/rows&gt;
+&lt;size&gt;50&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.TextAreaClass&lt;/classType&gt;
+&lt;/code&gt;
+&lt;name&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;name&lt;/name&gt;
+&lt;number&gt;1&lt;/number&gt;
+&lt;prettyName&gt;Name&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/name&gt;
+&lt;parse&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayFormType&gt;select&lt;/displayFormType&gt;
+&lt;displayType&gt;yesno&lt;/displayType&gt;
+&lt;name&gt;parse&lt;/name&gt;
+&lt;number&gt;4&lt;/number&gt;
+&lt;prettyName&gt;Parse content&lt;/prettyName&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.BooleanClass&lt;/classType&gt;
+&lt;/parse&gt;
+&lt;use&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;use&lt;/name&gt;
+&lt;number&gt;3&lt;/number&gt;
+&lt;prettyName&gt;Use this extension&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;currentPage=Always on this page|onDemand=On demand|always=Always on this wiki&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/use&gt;
+&lt;/class&gt;
+&lt;name&gt;Viewers.ViewersSheet&lt;/name&gt;
+&lt;number&gt;0&lt;/number&gt;
+&lt;className&gt;XWiki.StyleSheetExtension&lt;/className&gt;
+&lt;guid&gt;38a21bed-998b-411c-9bd5-b431d1c4db49&lt;/guid&gt;
+&lt;property&gt;
+&lt;cache&gt;long&lt;/cache&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;code&gt;.viewers-link:before {
+    background: none repeat scroll 0 0 #66BB44;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 0 1px 2px #FFFFFF inset, 0 2px 5px #000000 inset, 0 0 2px #000000, 0 0 1px 1px rgba(0, 0, 0, 0.5);
+    content: "↡";
+    display: inline-block;
+    font-weight: 900;
+    margin-right: 4px;
+    padding: 3px 6px;
+}
+
+.viewers-link {
+  color: white;
+  background: -moz-linear-gradient(center top , #5B86B1 0px, #78A7E5 30px) repeat scroll 0 0 #78A7E5;
+  border-radius: 18px 18px 18px 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(255, 255, 255, 0.8) inset, 0 0 1px 1px rgba(0, 0, 0, 0.3);
+  float: right;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 20px;
+  margin: 0 0 1em 1em;
+  margin-right: 200px;
+  text-transform: uppercase;
+}&lt;/code&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;name&gt;Viewers CSS&lt;/name&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;parse&gt;0&lt;/parse&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;use&gt;onDemand&lt;/use&gt;
+&lt;/property&gt;
+&lt;/object&gt;
+&lt;content&gt;{{velocity}}
+{{html wiki="true"}}
+#set($ok = $xwiki.ssx.use("Viewers.ViewersSheet"))
+#set($discard = $doc.use('Viewers.ViewersClass'))
+#set($discard = $services.localization.use('document', 'Viewers.ViewersTranslations'))
+#set($package = $doc.getValue("package"))
+#if($package &amp;amp;&amp;amp; $package!="")
+(% class="viewers-download" %)
+(((
+[[Download this WebViewer&amp;gt;&amp;gt;${package}||class="viewers-link viewers-download"]]
+)))
+#end
+(% class="xform half" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_viewername"&amp;gt;$escapetool.xml($doc.displayPrettyName('viewername', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('viewername')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_description"&amp;gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('description')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_package"&amp;gt;$escapetool.xml($doc.displayPrettyName('package', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('package')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_status"&amp;gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('status')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_mode"&amp;gt;$escapetool.xml($doc.displayPrettyName('mode', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('mode')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_type"&amp;gt;$escapetool.xml($doc.displayPrettyName('type', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('type')
+)))
+(% class="xform half" style="float: right;" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperDeveloper"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperDeveloper', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperDeveloper')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperVersion"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperVersion', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperVersion')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperLicence"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperLicence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperLicence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_sourcecodeurl"&amp;gt;$escapetool.xml($doc.displayPrettyName('sourcecodeurl', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('sourcecodeurl')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_developer"&amp;gt;$escapetool.xml($doc.displayPrettyName('developer', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('developer')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_version"&amp;gt;$escapetool.xml($doc.displayPrettyName('version', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('version')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_licence"&amp;gt;$escapetool.xml($doc.displayPrettyName('licence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('licence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_url"&amp;gt;$escapetool.xml($doc.displayPrettyName('url', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('url')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_details"&amp;gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('details')
+)))
+{{/html}}
+{{/velocity}}&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+14.11
+log
+@@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380550950000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380550950000&lt;/contentUpdateDate&gt;
+&lt;version&gt;14.11&lt;/version&gt;
+d166 1
+a166 1
+(% class="xform half" %)
+@
+
+
+14.10
+log
+@@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380550899000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380550899000&lt;/contentUpdateDate&gt;
+&lt;version&gt;14.10&lt;/version&gt;
+d151 1
+a151 1
+(% class="xform" %)
+d165 3
+@
+
+
+14.9
+log
+@@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380550878000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380550420000&lt;/contentUpdateDate&gt;
+&lt;version&gt;14.9&lt;/version&gt;
+d148 1
+a148 1
+[[Download&amp;gt;&amp;gt;${package}||class="viewers-link viewers-download"]]
+@
+
+
+14.8
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380550870000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;14.8&lt;/version&gt;
+d123 1
+a123 1
+  padding: 5px;
+@
+
+
+14.7
+log
+@@
+text
+@&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xwikidoc&gt;
+&lt;web&gt;Viewers&lt;/web&gt;
+&lt;name&gt;ViewersSheet&lt;/name&gt;
+&lt;language&gt;&lt;/language&gt;
+&lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
+&lt;translation&gt;0&lt;/translation&gt;
+&lt;parent&gt;ViewersClass&lt;/parent&gt;
+&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
+&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;creationDate&gt;1380534646000&lt;/creationDate&gt;
+&lt;date&gt;1380550859000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380550420000&lt;/contentUpdateDate&gt;
+&lt;version&gt;14.7&lt;/version&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;defaultTemplate&gt;&lt;/defaultTemplate&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;comment&gt;&lt;/comment&gt;
+&lt;minorEdit&gt;true&lt;/minorEdit&gt;
+&lt;syntaxId&gt;xwiki/2.1&lt;/syntaxId&gt;
+&lt;hidden&gt;true&lt;/hidden&gt;
+&lt;object&gt;
+&lt;class&gt;
+&lt;name&gt;XWiki.StyleSheetExtension&lt;/name&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;customMapping&gt;&lt;/customMapping&gt;
+&lt;defaultViewSheet&gt;&lt;/defaultViewSheet&gt;
+&lt;defaultEditSheet&gt;&lt;/defaultEditSheet&gt;
+&lt;defaultWeb&gt;&lt;/defaultWeb&gt;
+&lt;nameField&gt;&lt;/nameField&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;cache&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;cache&lt;/name&gt;
+&lt;number&gt;5&lt;/number&gt;
+&lt;prettyName&gt;Caching policy&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;long|short|default|forbid&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/cache&gt;
+&lt;code&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;code&lt;/name&gt;
+&lt;number&gt;2&lt;/number&gt;
+&lt;prettyName&gt;Code&lt;/prettyName&gt;
+&lt;rows&gt;20&lt;/rows&gt;
+&lt;size&gt;50&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.TextAreaClass&lt;/classType&gt;
+&lt;/code&gt;
+&lt;name&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;name&lt;/name&gt;
+&lt;number&gt;1&lt;/number&gt;
+&lt;prettyName&gt;Name&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/name&gt;
+&lt;parse&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayFormType&gt;select&lt;/displayFormType&gt;
+&lt;displayType&gt;yesno&lt;/displayType&gt;
+&lt;name&gt;parse&lt;/name&gt;
+&lt;number&gt;4&lt;/number&gt;
+&lt;prettyName&gt;Parse content&lt;/prettyName&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.BooleanClass&lt;/classType&gt;
+&lt;/parse&gt;
+&lt;use&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;use&lt;/name&gt;
+&lt;number&gt;3&lt;/number&gt;
+&lt;prettyName&gt;Use this extension&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;currentPage=Always on this page|onDemand=On demand|always=Always on this wiki&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/use&gt;
+&lt;/class&gt;
+&lt;name&gt;Viewers.ViewersSheet&lt;/name&gt;
+&lt;number&gt;0&lt;/number&gt;
+&lt;className&gt;XWiki.StyleSheetExtension&lt;/className&gt;
+&lt;guid&gt;38a21bed-998b-411c-9bd5-b431d1c4db49&lt;/guid&gt;
+&lt;property&gt;
+&lt;cache&gt;long&lt;/cache&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;code&gt;.viewers-link:before {
+    background: none repeat scroll 0 0 #66BB44;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 0 1px 2px #FFFFFF inset, 0 2px 5px #000000 inset, 0 0 2px #000000, 0 0 1px 1px rgba(0, 0, 0, 0.5);
+    content: "↡";
+    display: inline-block;
+    font-weight: 900;
+    margin-right: 4px;
+    padding: 3px 6px;
+}
+
+.viewers-link {
+  color: white;
+  background: -moz-linear-gradient(center top , #5B86B1 0px, #78A7E5 30px) repeat scroll 0 0 #78A7E5;
+  border-radius: 18px 18px 18px 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(255, 255, 255, 0.8) inset, 0 0 1px 1px rgba(0, 0, 0, 0.3);
+  float: right;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0 0 1em 1em;
+  margin-right: 200px;
+  text-transform: uppercase;
+}&lt;/code&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;name&gt;Viewers CSS&lt;/name&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;parse&gt;0&lt;/parse&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;use&gt;onDemand&lt;/use&gt;
+&lt;/property&gt;
+&lt;/object&gt;
+&lt;content&gt;{{velocity}}
+{{html wiki="true"}}
+#set($ok = $xwiki.ssx.use("Viewers.ViewersSheet"))
+#set($discard = $doc.use('Viewers.ViewersClass'))
+#set($discard = $services.localization.use('document', 'Viewers.ViewersTranslations'))
+#set($package = $doc.getValue("package"))
+#if($package &amp;amp;&amp;amp; $package!="")
+(% class="viewers-download" %)
+(((
+[[Download&amp;gt;&amp;gt;${package}||class="viewers-link viewers-download"]]
+)))
+#end
+(% class="xform" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_viewername"&amp;gt;$escapetool.xml($doc.displayPrettyName('viewername', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('viewername')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_description"&amp;gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('description')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_package"&amp;gt;$escapetool.xml($doc.displayPrettyName('package', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('package')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_status"&amp;gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('status')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_mode"&amp;gt;$escapetool.xml($doc.displayPrettyName('mode', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('mode')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_type"&amp;gt;$escapetool.xml($doc.displayPrettyName('type', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('type')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperDeveloper"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperDeveloper', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperDeveloper')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperVersion"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperVersion', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperVersion')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperLicence"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperLicence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperLicence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_sourcecodeurl"&amp;gt;$escapetool.xml($doc.displayPrettyName('sourcecodeurl', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('sourcecodeurl')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_developer"&amp;gt;$escapetool.xml($doc.displayPrettyName('developer', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('developer')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_version"&amp;gt;$escapetool.xml($doc.displayPrettyName('version', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('version')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_licence"&amp;gt;$escapetool.xml($doc.displayPrettyName('licence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('licence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_url"&amp;gt;$escapetool.xml($doc.displayPrettyName('url', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('url')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_details"&amp;gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('details')
+)))
+{{/html}}
+{{/velocity}}&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+14.6
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380550851000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;14.6&lt;/version&gt;
+d122 1
+@
+
+
+14.5
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380550800000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;14.5&lt;/version&gt;
+d121 1
+a121 1
+  font-size: 0.85em;
+@
+
+
+14.4
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380550787000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;14.4&lt;/version&gt;
+d123 1
+@
+
+
+14.3
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380550752000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;14.3&lt;/version&gt;
+d116 1
+@
+
+
+14.2
+log
+@@
+text
+@&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xwikidoc&gt;
+&lt;web&gt;Viewers&lt;/web&gt;
+&lt;name&gt;ViewersSheet&lt;/name&gt;
+&lt;language&gt;&lt;/language&gt;
+&lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
+&lt;translation&gt;0&lt;/translation&gt;
+&lt;parent&gt;ViewersClass&lt;/parent&gt;
+&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
+&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;creationDate&gt;1380534646000&lt;/creationDate&gt;
+&lt;date&gt;1380550698000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380550420000&lt;/contentUpdateDate&gt;
+&lt;version&gt;14.2&lt;/version&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;defaultTemplate&gt;&lt;/defaultTemplate&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;comment&gt;&lt;/comment&gt;
+&lt;minorEdit&gt;true&lt;/minorEdit&gt;
+&lt;syntaxId&gt;xwiki/2.1&lt;/syntaxId&gt;
+&lt;hidden&gt;true&lt;/hidden&gt;
+&lt;object&gt;
+&lt;class&gt;
+&lt;name&gt;XWiki.StyleSheetExtension&lt;/name&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;customMapping&gt;&lt;/customMapping&gt;
+&lt;defaultViewSheet&gt;&lt;/defaultViewSheet&gt;
+&lt;defaultEditSheet&gt;&lt;/defaultEditSheet&gt;
+&lt;defaultWeb&gt;&lt;/defaultWeb&gt;
+&lt;nameField&gt;&lt;/nameField&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;cache&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;cache&lt;/name&gt;
+&lt;number&gt;5&lt;/number&gt;
+&lt;prettyName&gt;Caching policy&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;long|short|default|forbid&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/cache&gt;
+&lt;code&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;code&lt;/name&gt;
+&lt;number&gt;2&lt;/number&gt;
+&lt;prettyName&gt;Code&lt;/prettyName&gt;
+&lt;rows&gt;20&lt;/rows&gt;
+&lt;size&gt;50&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.TextAreaClass&lt;/classType&gt;
+&lt;/code&gt;
+&lt;name&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;name&lt;/name&gt;
+&lt;number&gt;1&lt;/number&gt;
+&lt;prettyName&gt;Name&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/name&gt;
+&lt;parse&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayFormType&gt;select&lt;/displayFormType&gt;
+&lt;displayType&gt;yesno&lt;/displayType&gt;
+&lt;name&gt;parse&lt;/name&gt;
+&lt;number&gt;4&lt;/number&gt;
+&lt;prettyName&gt;Parse content&lt;/prettyName&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.BooleanClass&lt;/classType&gt;
+&lt;/parse&gt;
+&lt;use&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;use&lt;/name&gt;
+&lt;number&gt;3&lt;/number&gt;
+&lt;prettyName&gt;Use this extension&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;values&gt;currentPage=Always on this page|onDemand=On demand|always=Always on this wiki&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/use&gt;
+&lt;/class&gt;
+&lt;name&gt;Viewers.ViewersSheet&lt;/name&gt;
+&lt;number&gt;0&lt;/number&gt;
+&lt;className&gt;XWiki.StyleSheetExtension&lt;/className&gt;
+&lt;guid&gt;38a21bed-998b-411c-9bd5-b431d1c4db49&lt;/guid&gt;
+&lt;property&gt;
+&lt;cache&gt;long&lt;/cache&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;code&gt;.viewers-link:before {
+    background: none repeat scroll 0 0 #66BB44;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 0 1px 2px #FFFFFF inset, 0 2px 5px #000000 inset, 0 0 2px #000000, 0 0 1px 1px rgba(0, 0, 0, 0.5);
+    content: "↡";
+    display: inline-block;
+    font-weight: 900;
+    margin-right: 4px;
+    padding: 3px 6px;
+}
+
+.viewers-link {
+  background: -moz-linear-gradient(center top , #5B86B1 0px, #78A7E5 30px) repeat scroll 0 0 #78A7E5;
+  border-radius: 18px 18px 18px 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(255, 255, 255, 0.8) inset, 0 0 1px 1px rgba(0, 0, 0, 0.3);
+}&lt;/code&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;name&gt;Viewers CSS&lt;/name&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;parse&gt;0&lt;/parse&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;use&gt;onDemand&lt;/use&gt;
+&lt;/property&gt;
+&lt;/object&gt;
+&lt;content&gt;{{velocity}}
+{{html wiki="true"}}
+#set($ok = $xwiki.ssx.use("Viewers.ViewersSheet"))
+#set($discard = $doc.use('Viewers.ViewersClass'))
+#set($discard = $services.localization.use('document', 'Viewers.ViewersTranslations'))
+#set($package = $doc.getValue("package"))
+#if($package &amp;amp;&amp;amp; $package!="")
+(% class="viewers-download" %)
+(((
+[[Download&amp;gt;&amp;gt;${package}||class="viewers-link viewers-download"]]
+)))
+#end
+(% class="xform" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_viewername"&amp;gt;$escapetool.xml($doc.displayPrettyName('viewername', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('viewername')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_description"&amp;gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('description')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_package"&amp;gt;$escapetool.xml($doc.displayPrettyName('package', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('package')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_status"&amp;gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('status')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_mode"&amp;gt;$escapetool.xml($doc.displayPrettyName('mode', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('mode')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_type"&amp;gt;$escapetool.xml($doc.displayPrettyName('type', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('type')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperDeveloper"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperDeveloper', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperDeveloper')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperVersion"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperVersion', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperVersion')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperLicence"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperLicence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperLicence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_sourcecodeurl"&amp;gt;$escapetool.xml($doc.displayPrettyName('sourcecodeurl', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('sourcecodeurl')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_developer"&amp;gt;$escapetool.xml($doc.displayPrettyName('developer', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('developer')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_version"&amp;gt;$escapetool.xml($doc.displayPrettyName('version', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('version')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_licence"&amp;gt;$escapetool.xml($doc.displayPrettyName('licence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('licence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_url"&amp;gt;$escapetool.xml($doc.displayPrettyName('url', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('url')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_details"&amp;gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('details')
+)))
+{{/html}}
+{{/velocity}}&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+14.1
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380550420000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;14.1&lt;/version&gt;
+d21 1
+a21 1
+&lt;minorEdit&gt;false&lt;/minorEdit&gt;
+d113 6
+@
+
+
+13.1
+log
+@@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380550394000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380550371000&lt;/contentUpdateDate&gt;
+&lt;version&gt;13.1&lt;/version&gt;
+d132 1
+a132 1
+(% class="viewers-download")
+@
+
+
+12.1
+log
+@@
+text
+@d14 1
+a14 1
+&lt;date&gt;1380550371000&lt;/date&gt;
+d16 1
+a16 1
+&lt;version&gt;12.1&lt;/version&gt;
+d100 24
+@
+
+
+11.1
+log
+@@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380550322000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380550322000&lt;/contentUpdateDate&gt;
+&lt;version&gt;11.1&lt;/version&gt;
+d24 77
+@
+
+
+10.1
+log
+@@
+text
+@&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xwikidoc&gt;
+&lt;web&gt;Viewers&lt;/web&gt;
+&lt;name&gt;ViewersSheet&lt;/name&gt;
+&lt;language&gt;&lt;/language&gt;
+&lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
+&lt;translation&gt;0&lt;/translation&gt;
+&lt;parent&gt;ViewersClass&lt;/parent&gt;
+&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
+&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;creationDate&gt;1380534646000&lt;/creationDate&gt;
+&lt;date&gt;1380550269000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380550269000&lt;/contentUpdateDate&gt;
+&lt;version&gt;10.1&lt;/version&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;defaultTemplate&gt;&lt;/defaultTemplate&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;comment&gt;&lt;/comment&gt;
+&lt;minorEdit&gt;false&lt;/minorEdit&gt;
+&lt;syntaxId&gt;xwiki/2.1&lt;/syntaxId&gt;
+&lt;hidden&gt;true&lt;/hidden&gt;
+&lt;content&gt;{{velocity}}
+{{html wiki="true"}}
+#set ($discard = $doc.use('Viewers.ViewersClass'))
+#set ($discard = $services.localization.use('document', 'Viewers.ViewersTranslations'))
+#set($package = $doc.getValue("package"))
+#if($package &amp;amp;&amp;amp; $package!="")
+(% class="viewers-download")
+(((
+[[Download&amp;gt;&amp;gt;${package}||class="viewers-link viewers-download"]]
+)))
+#end
+(% class="xform" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_viewername"&amp;gt;$escapetool.xml($doc.displayPrettyName('viewername', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('viewername')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_description"&amp;gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('description')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_package"&amp;gt;$escapetool.xml($doc.displayPrettyName('package', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('package')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_status"&amp;gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('status')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_mode"&amp;gt;$escapetool.xml($doc.displayPrettyName('mode', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('mode')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_type"&amp;gt;$escapetool.xml($doc.displayPrettyName('type', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('type')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperDeveloper"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperDeveloper', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperDeveloper')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperVersion"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperVersion', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperVersion')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperLicence"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperLicence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperLicence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_sourcecodeurl"&amp;gt;$escapetool.xml($doc.displayPrettyName('sourcecodeurl', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('sourcecodeurl')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_developer"&amp;gt;$escapetool.xml($doc.displayPrettyName('developer', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('developer')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_version"&amp;gt;$escapetool.xml($doc.displayPrettyName('version', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('version')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_licence"&amp;gt;$escapetool.xml($doc.displayPrettyName('licence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('licence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_url"&amp;gt;$escapetool.xml($doc.displayPrettyName('url', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('url')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_details"&amp;gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('details')
+)))
+{{/html}}
+{{/velocity}}&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+9.1
+log
+@@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380550249000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380550249000&lt;/contentUpdateDate&gt;
+&lt;version&gt;9.1&lt;/version&gt;
+d32 1
+a32 1
+[[Download&amp;gt;&amp;gt;attach:${package}||class="viewers-link viewers-download"]]
+@
+
+
+8.1
+log
+@Update class sheet
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380549952000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380549952000&lt;/contentUpdateDate&gt;
+&lt;version&gt;8.1&lt;/version&gt;
+d20 1
+a20 1
+&lt;comment&gt;Update class sheet&lt;/comment&gt;
+d28 7
+@
+
+
+7.1
+log
+@Update class sheet
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380549877000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380549877000&lt;/contentUpdateDate&gt;
+&lt;version&gt;7.1&lt;/version&gt;
+d34 2
+a59 2
+  ; &amp;lt;label for="Viewers.ViewersClass_0_package"&amp;gt;$escapetool.xml($doc.displayPrettyName('package', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('package')
+@
+
+
+6.1
+log
+@Update class sheet
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380549746000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380549746000&lt;/contentUpdateDate&gt;
+&lt;version&gt;6.1&lt;/version&gt;
+d58 2
+@
+
+
+5.1
+log
+@Update class sheet
+@
+text
+@&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xwikidoc&gt;
+&lt;web&gt;Viewers&lt;/web&gt;
+&lt;name&gt;ViewersSheet&lt;/name&gt;
+&lt;language&gt;&lt;/language&gt;
+&lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
+&lt;translation&gt;0&lt;/translation&gt;
+&lt;parent&gt;ViewersClass&lt;/parent&gt;
+&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
+&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;creationDate&gt;1380534646000&lt;/creationDate&gt;
+&lt;date&gt;1380538765000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380538765000&lt;/contentUpdateDate&gt;
+&lt;version&gt;5.1&lt;/version&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;defaultTemplate&gt;&lt;/defaultTemplate&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;comment&gt;Update class sheet&lt;/comment&gt;
+&lt;minorEdit&gt;false&lt;/minorEdit&gt;
+&lt;syntaxId&gt;xwiki/2.1&lt;/syntaxId&gt;
+&lt;hidden&gt;true&lt;/hidden&gt;
+&lt;content&gt;{{velocity}}
+{{html wiki="true"}}
+#set ($discard = $doc.use('Viewers.ViewersClass'))
+#set ($discard = $services.localization.use('document', 'Viewers.ViewersTranslations'))
+(% class="xform" %)
+(((
+  ; &amp;lt;label for="Viewers.ViewersClass_0_viewername"&amp;gt;$escapetool.xml($doc.displayPrettyName('viewername', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('viewername')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_description"&amp;gt;$escapetool.xml($doc.displayPrettyName('description', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('description')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_status"&amp;gt;$escapetool.xml($doc.displayPrettyName('status', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('status')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_mode"&amp;gt;$escapetool.xml($doc.displayPrettyName('mode', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('mode')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_type"&amp;gt;$escapetool.xml($doc.displayPrettyName('type', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('type')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperDeveloper"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperDeveloper', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperDeveloper')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_wrapperLicence"&amp;gt;$escapetool.xml($doc.displayPrettyName('wrapperLicence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('wrapperLicence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_sourcecodeurl"&amp;gt;$escapetool.xml($doc.displayPrettyName('sourcecodeurl', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('sourcecodeurl')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_developer"&amp;gt;$escapetool.xml($doc.displayPrettyName('developer', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('developer')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_licence"&amp;gt;$escapetool.xml($doc.displayPrettyName('licence', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('licence')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_url"&amp;gt;$escapetool.xml($doc.displayPrettyName('url', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('url')
+  ; &amp;lt;label for="Viewers.ViewersClass_0_details"&amp;gt;$escapetool.xml($doc.displayPrettyName('details', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('details')
+)))
+{{/html}}
+{{/velocity}}&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+4.1
+log
+@Update class sheet
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380538259000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380538259000&lt;/contentUpdateDate&gt;
+&lt;version&gt;4.1&lt;/version&gt;
+d34 2
+@
+
+
+3.1
+log
+@Update class sheet
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380537302000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380537302000&lt;/contentUpdateDate&gt;
+&lt;version&gt;3.1&lt;/version&gt;
+d38 6
+a47 2
+  ; &amp;lt;label for="Viewers.ViewersClass_0_sourcecodeurl"&amp;gt;$escapetool.xml($doc.displayPrettyName('sourcecodeurl', false, false))&amp;lt;/label&amp;gt;
+  : $doc.display('sourcecodeurl')
+@
+
+
+2.1
+log
+@Update class sheet
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380534826000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380534826000&lt;/contentUpdateDate&gt;
+&lt;version&gt;2.1&lt;/version&gt;
+d32 2
+d42 4
+@
+
+
+1.1
+log
+@Update class sheet
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380534646000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380534646000&lt;/contentUpdateDate&gt;
+&lt;version&gt;1.1&lt;/version&gt;
+d32 2
+@
+</versions></xwikidoc>

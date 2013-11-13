@@ -42,7 +42,7 @@ class AttachEventListener implements EventListener
 
     void onEvent(Event event, Object source, Object data) {
         XWikiDocument doc = (XWikiDocument) source;
-        BaseObject obj = doc.getObject("WebViewers.WebViewerClass");
+        BaseObject obj = doc.getObject("Viewers.ViewersClass");
         if (obj != null) {
             this.check(new Context(data), true);
         }
@@ -54,7 +54,7 @@ class AttachEventListener implements EventListener
         def entry;
         while ((entry = zis.getNextEntry()) != null) {
             def entryName = entry.getName();
-            if (!"package.json".equals(entryName)) { continue; }
+            if (!"webviewer.json".equals(entryName)) { continue; }
             def writer = new StringWriter();
             IOUtils.copy(zis, writer, "UTF-8");
             return writer.toString();
@@ -64,8 +64,8 @@ class AttachEventListener implements EventListener
 
     private Map doZip(xcontext, doc, fileName, out) {
         def j = new JsonSlurper().parseText(getPkg(doc, fileName, xcontext));
-        def actions = j.get("resilience").get("actions");
-        def main = j.get("resilience").get("main");
+        def actions = j.get("actions");
+        def main = j.get("main");
         if (!main) { main = "index.html"; }
         for (Object action : actions.keySet()) {
             for (Object fileType : actions.get(action)) {
@@ -87,7 +87,7 @@ class AttachEventListener implements EventListener
         def xc = xcontext.getContext();
         def xwiki = new XWiki(xc.getWiki(), xc);
         def names = xwiki.searchDocuments(", BaseObject as obj where "
-                                        + "obj.className = 'WebViewers.WebViewerClass' "
+                                        + "obj.className = 'Viewers.ViewersClass' "
                                         + "and obj.name = doc.fullName");
         def am = new HashMap();
         for (Object name : names) {

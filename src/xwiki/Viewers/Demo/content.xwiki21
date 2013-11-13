@@ -1,3 +1,5 @@
+You may need the textedit webviewer for this to display properly.
+https://github.com/WebViewers/textedit-webviewer
 ~{~{embed tar="hello.txt" /~}~}
 
 {{embed tar="hello.txt" /}}
@@ -13,18 +15,15 @@ You can specify width and height.
 {{embed tar="hello.txt" width="400" height="300" params="help" /}}
 
 
-When you install pdf.js gadget, this embed will begin working:
-To install, simply attach the .zip file to [[Gadgets]].
-https://github.com/cjdelisle/pdf.js/tree/resilience
-https://github.com/cjdelisle/pdf.js-resilience-mvnbuild
+When you install pdf.js WebViewer, this embed will begin working:
+https://github.com/WebViewers/pdf.js-webviewer
 ~{~{embed tar="ed25519-20110926.pdf" /~}~}
 
 {{embed tar="ed25519-20110926.pdf" /}}
 
 
 This embed will begin working when you install jquery.sheet gadget:
-https://github.com/cjdelisle/resilience-spreadsheet
-https://github.com/cjdelisle/resilience-spreadsheet-mvnbuild
+https://github.com/WebViewers/spreadsheet-webviewer
 ~{~{embed tar="spreadsheet.jqs" /~}~}
 
 {{embed tar="spreadsheet.jqs" /}}

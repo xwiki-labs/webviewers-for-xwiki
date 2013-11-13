@@ -12,8 +12,8 @@
     xwikiInlineView: "$doc.getAttachmentURL('xwikiInlineView.js')",
     renderjs_jquery: "$doc.getAttachmentURL('renderjs_jquery.js')",
     // the ? is needed to keep require.js from adding a .js to the end.
-    rGadgets: "$xwiki.getURL('WebViewers.Code', 'jsx')?",
-    rHooks: "$xwiki.getDocument('WebViewers.Code').getAttachmentURL('xwiki-rHooks.js')",
+    rGadgets: "$xwiki.getURL('Viewers.Code', 'jsx')?",
+    rHooks: "$xwiki.getDocument('Viewers.Code').getAttachmentURL('xwiki-rHooks.js')",
   };
   for (var path in paths) { paths[path] = paths[path].replace(/\.js$/, ''); }
   require.config({

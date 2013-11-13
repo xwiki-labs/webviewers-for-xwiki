@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Viewers</web>
+<name>ViewersTemplate</name>
+<language></language>
+<defaultLanguage></defaultLanguage>
+<translation>0</translation>
+<parent>ViewersClass</parent>
+<creator>XWiki.ludovic</creator>
+<author>XWiki.ludovic</author>
+<customClass></customClass>
+<contentAuthor>XWiki.ludovic</contentAuthor>
+<creationDate>1380534644000</creationDate>
+<date>1380549951000</date>
+<contentUpdateDate>1380549951000</contentUpdateDate>
+<version>8.1</version>
+<title></title>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment>Update default values</comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>true</hidden>
+<object>
+<class>
+<name>Viewers.ViewersClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<description>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<editor>Wysiwyg</editor>
+<name>description</name>
+<number>2</number>
+<picker>0</picker>
+<prettyName>Description</prettyName>
+<rows>5</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</description>
+<details>
+<customDisplay>{{include reference="AppWithinMinutes.Content"/}}</customDisplay>
+<disabled>0</disabled>
+<name>details</name>
+<number>15</number>
+<prettyName>Details</prettyName>
+<script></script>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.ComputedFieldClass</classType>
+</details>
+<developer>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>developer</name>
+<number>11</number>
+<picker>0</picker>
+<prettyName>Viewer Developer</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</developer>
+<licence>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>licence</name>
+<number>13</number>
+<picker>0</picker>
+<prettyName>Viewer Licence</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</licence>
+<mode>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>checkbox</displayType>
+<multiSelect>1</multiSelect>
+<name>mode</name>
+<number>5</number>
+<picker>0</picker>
+<prettyName>Viewer Mode</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<sort>none</sort>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<values>view|edit</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</mode>
+<package>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>package</name>
+<number>3</number>
+<picker>0</picker>
+<prettyName>Package</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</package>
+<sourcecodeurl>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>sourcecodeurl</name>
+<number>10</number>
+<picker>0</picker>
+<prettyName>Viewer Wrapper Source Code URL</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</sourcecodeurl>
+<status>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>status</name>
+<number>4</number>
+<picker>0</picker>
+<prettyName>Status</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<sort>none</sort>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<values>planned=Planned|alpha=Alpha|beta=Beta|released=Released</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</status>
+<type>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>type</name>
+<number>6</number>
+<picker>0</picker>
+<prettyName>Viewer Type</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<sort>none</sort>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<values>drawing|business|office|other</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</type>
+<url>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>url</name>
+<number>14</number>
+<picker>0</picker>
+<prettyName>Viewer URL</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</url>
+<version>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>version</name>
+<number>12</number>
+<picker>0</picker>
+<prettyName>Viewer Version</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</version>
+<viewername>
+<customDisplay>{{include reference="AppWithinMinutes.Title"/}}</customDisplay>
+<disabled>0</disabled>
+<name>viewername</name>
+<number>1</number>
+<prettyName>Viewer Name</prettyName>
+<script></script>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.ComputedFieldClass</classType>
+</viewername>
+<wrapperDeveloper>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>wrapperDeveloper</name>
+<number>7</number>
+<picker>0</picker>
+<prettyName>Viewer Wrapper Developer</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</wrapperDeveloper>
+<wrapperLicence>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>wrapperLicence</name>
+<number>9</number>
+<picker>0</picker>
+<prettyName>Viewer Wrapper Licence</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</wrapperLicence>
+<wrapperVersion>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>wrapperVersion</name>
+<number>8</number>
+<picker>0</picker>
+<prettyName>Viewer Wrapper Version</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</wrapperVersion>
+</class>
+<name>Viewers.ViewersTemplate</name>
+<number>0</number>
+<className>Viewers.ViewersClass</className>
+<guid>e6651dc5-b4f3-4d1d-a6ec-4808c52b452e</guid>
+<property>
+<description></description>
+</property>
+<property>
+<developer></developer>
+</property>
+<property>
+<licence></licence>
+</property>
+<property>
+<mode/>
+</property>
+<property>
+<package></package>
+</property>
+<property>
+<sourcecodeurl></sourcecodeurl>
+</property>
+<property>
+<status>planned</status>
+</property>
+<property>
+<type>drawing</type>
+</property>
+<property>
+<url></url>
+</property>
+<property>
+<version></version>
+</property>
+<property>
+<wrapperDeveloper></wrapperDeveloper>
+</property>
+<property>
+<wrapperLicence></wrapperLicence>
+</property>
+<property>
+<wrapperVersion></wrapperVersion>
+</property>
+</object>
+<content></content>
+<versions>head	8.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+8.1
+date	2013.09.30.16.05.51;	author XWiki_2Eludovic;	state full;
+branches;
+next	7.1;
+
+7.1
+date	2013.09.30.16.04.37;	author XWiki_2Eludovic;	state diff;
+branches;
+next	6.1;
+
+6.1
+date	2013.09.30.16.02.25;	author XWiki_2Eludovic;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2013.09.30.12.59.23;	author XWiki_2Eludovic;	state diff;
+branches;
+next	4.1;
+
+4.1
+date	2013.09.30.12.50.58;	author XWiki_2Eludovic;	state full;
+branches;
+next	3.2;
+
+3.2
+date	2013.09.30.12.50.51;	author XWiki_2Eludovic;	state diff;
+branches;
+next	3.1;
+
+3.1
+date	2013.09.30.12.34.40;	author XWiki_2Eludovic;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2013.09.30.11.53.32;	author XWiki_2Eludovic;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2013.09.30.11.50.44;	author XWiki_2Eludovic;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+8.1
+log
+@Update default values
+@
+text
+@&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xwikidoc&gt;
+&lt;web&gt;Viewers&lt;/web&gt;
+&lt;name&gt;ViewersTemplate&lt;/name&gt;
+&lt;language&gt;&lt;/language&gt;
+&lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
+&lt;translation&gt;0&lt;/translation&gt;
+&lt;parent&gt;ViewersClass&lt;/parent&gt;
+&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
+&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;creationDate&gt;1380534644000&lt;/creationDate&gt;
+&lt;date&gt;1380549951000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380549951000&lt;/contentUpdateDate&gt;
+&lt;version&gt;8.1&lt;/version&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;defaultTemplate&gt;&lt;/defaultTemplate&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;comment&gt;Update default values&lt;/comment&gt;
+&lt;minorEdit&gt;false&lt;/minorEdit&gt;
+&lt;syntaxId&gt;xwiki/2.1&lt;/syntaxId&gt;
+&lt;hidden&gt;true&lt;/hidden&gt;
+&lt;object&gt;
+&lt;class&gt;
+&lt;name&gt;Viewers.ViewersClass&lt;/name&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;customMapping&gt;&lt;/customMapping&gt;
+&lt;defaultViewSheet&gt;&lt;/defaultViewSheet&gt;
+&lt;defaultEditSheet&gt;&lt;/defaultEditSheet&gt;
+&lt;defaultWeb&gt;&lt;/defaultWeb&gt;
+&lt;nameField&gt;&lt;/nameField&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;description&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;editor&gt;Wysiwyg&lt;/editor&gt;
+&lt;name&gt;description&lt;/name&gt;
+&lt;number&gt;2&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Description&lt;/prettyName&gt;
+&lt;rows&gt;5&lt;/rows&gt;
+&lt;size&gt;40&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.TextAreaClass&lt;/classType&gt;
+&lt;/description&gt;
+&lt;details&gt;
+&lt;customDisplay&gt;{{include reference="AppWithinMinutes.Content"/}}&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;details&lt;/name&gt;
+&lt;number&gt;15&lt;/number&gt;
+&lt;prettyName&gt;Details&lt;/prettyName&gt;
+&lt;script&gt;&lt;/script&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.ComputedFieldClass&lt;/classType&gt;
+&lt;/details&gt;
+&lt;developer&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;developer&lt;/name&gt;
+&lt;number&gt;11&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Developer&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/developer&gt;
+&lt;licence&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;licence&lt;/name&gt;
+&lt;number&gt;13&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Licence&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/licence&gt;
+&lt;mode&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;checkbox&lt;/displayType&gt;
+&lt;multiSelect&gt;1&lt;/multiSelect&gt;
+&lt;name&gt;mode&lt;/name&gt;
+&lt;number&gt;5&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Mode&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;sort&gt;none&lt;/sort&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;values&gt;view|edit&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/mode&gt;
+&lt;package&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;package&lt;/name&gt;
+&lt;number&gt;3&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Package&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/package&gt;
+&lt;sourcecodeurl&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;sourcecodeurl&lt;/name&gt;
+&lt;number&gt;10&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Wrapper Source Code URL&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/sourcecodeurl&gt;
+&lt;status&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;status&lt;/name&gt;
+&lt;number&gt;4&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Status&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;sort&gt;none&lt;/sort&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;values&gt;planned=Planned|alpha=Alpha|beta=Beta|released=Released&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/status&gt;
+&lt;type&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;type&lt;/name&gt;
+&lt;number&gt;6&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Type&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;sort&gt;none&lt;/sort&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;values&gt;drawing|business|office|other&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/type&gt;
+&lt;url&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;url&lt;/name&gt;
+&lt;number&gt;14&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer URL&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/url&gt;
+&lt;version&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;version&lt;/name&gt;
+&lt;number&gt;12&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Version&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/version&gt;
+&lt;viewername&gt;
+&lt;customDisplay&gt;{{include reference="AppWithinMinutes.Title"/}}&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;viewername&lt;/name&gt;
+&lt;number&gt;1&lt;/number&gt;
+&lt;prettyName&gt;Viewer Name&lt;/prettyName&gt;
+&lt;script&gt;&lt;/script&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.ComputedFieldClass&lt;/classType&gt;
+&lt;/viewername&gt;
+&lt;wrapperDeveloper&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;wrapperDeveloper&lt;/name&gt;
+&lt;number&gt;7&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Wrapper Developer&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/wrapperDeveloper&gt;
+&lt;wrapperLicence&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;wrapperLicence&lt;/name&gt;
+&lt;number&gt;9&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Wrapper Licence&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/wrapperLicence&gt;
+&lt;wrapperVersion&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;wrapperVersion&lt;/name&gt;
+&lt;number&gt;8&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Wrapper Version&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/wrapperVersion&gt;
+&lt;/class&gt;
+&lt;name&gt;Viewers.ViewersTemplate&lt;/name&gt;
+&lt;number&gt;0&lt;/number&gt;
+&lt;className&gt;Viewers.ViewersClass&lt;/className&gt;
+&lt;guid&gt;e6651dc5-b4f3-4d1d-a6ec-4808c52b452e&lt;/guid&gt;
+&lt;property&gt;
+&lt;description&gt;&lt;/description&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;developer&gt;&lt;/developer&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;licence&gt;&lt;/licence&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;mode/&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;package&gt;&lt;/package&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;sourcecodeurl&gt;&lt;/sourcecodeurl&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;status&gt;planned&lt;/status&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;type&gt;drawing&lt;/type&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;url&gt;&lt;/url&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;version&gt;&lt;/version&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;wrapperDeveloper&gt;&lt;/wrapperDeveloper&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;wrapperLicence&gt;&lt;/wrapperLicence&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;wrapperVersion&gt;&lt;/wrapperVersion&gt;
+&lt;/property&gt;
+&lt;/object&gt;
+&lt;content&gt;&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+7.1
+log
+@Update default values
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380549877000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380549877000&lt;/contentUpdateDate&gt;
+&lt;version&gt;7.1&lt;/version&gt;
+d53 1
+a53 1
+&lt;number&gt;14&lt;/number&gt;
+d65 1
+a65 1
+&lt;number&gt;10&lt;/number&gt;
+d78 1
+a78 1
+&lt;number&gt;12&lt;/number&gt;
+d94 1
+a94 1
+&lt;number&gt;4&lt;/number&gt;
+d112 1
+a112 1
+&lt;number&gt;15&lt;/number&gt;
+d125 1
+a125 1
+&lt;number&gt;9&lt;/number&gt;
+d141 1
+a141 1
+&lt;number&gt;3&lt;/number&gt;
+d162 1
+a162 1
+&lt;number&gt;5&lt;/number&gt;
+d180 1
+a180 1
+&lt;number&gt;13&lt;/number&gt;
+d193 1
+a193 1
+&lt;number&gt;11&lt;/number&gt;
+d218 1
+a218 1
+&lt;number&gt;6&lt;/number&gt;
+d231 1
+a231 1
+&lt;number&gt;8&lt;/number&gt;
+d244 1
+a244 1
+&lt;number&gt;7&lt;/number&gt;
+@
+
+
+6.1
+log
+@Update default values
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380549745000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380549745000&lt;/contentUpdateDate&gt;
+&lt;version&gt;6.1&lt;/version&gt;
+d108 13
+d271 3
+@
+
+
+5.1
+log
+@Update default values
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380538763000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380538763000&lt;/contentUpdateDate&gt;
+&lt;version&gt;5.1&lt;/version&gt;
+d53 1
+a53 1
+&lt;number&gt;12&lt;/number&gt;
+d65 1
+a65 1
+&lt;number&gt;9&lt;/number&gt;
+d78 1
+a78 1
+&lt;number&gt;10&lt;/number&gt;
+d112 1
+a112 1
+&lt;number&gt;8&lt;/number&gt;
+d167 1
+a167 1
+&lt;number&gt;11&lt;/number&gt;
+d176 13
+d218 1
+a218 1
+&lt;number&gt;7&lt;/number&gt;
+d227 13
+d270 3
+d278 3
+@
+
+
+4.1
+log
+@Update default values
+@
+text
+@&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xwikidoc&gt;
+&lt;web&gt;Viewers&lt;/web&gt;
+&lt;name&gt;ViewersTemplate&lt;/name&gt;
+&lt;language&gt;&lt;/language&gt;
+&lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
+&lt;translation&gt;0&lt;/translation&gt;
+&lt;parent&gt;ViewersClass&lt;/parent&gt;
+&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
+&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;creationDate&gt;1380534644000&lt;/creationDate&gt;
+&lt;date&gt;1380538258000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380538258000&lt;/contentUpdateDate&gt;
+&lt;version&gt;4.1&lt;/version&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;defaultTemplate&gt;&lt;/defaultTemplate&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;comment&gt;Update default values&lt;/comment&gt;
+&lt;minorEdit&gt;false&lt;/minorEdit&gt;
+&lt;syntaxId&gt;xwiki/2.1&lt;/syntaxId&gt;
+&lt;hidden&gt;true&lt;/hidden&gt;
+&lt;object&gt;
+&lt;class&gt;
+&lt;name&gt;Viewers.ViewersClass&lt;/name&gt;
+&lt;customClass&gt;&lt;/customClass&gt;
+&lt;customMapping&gt;&lt;/customMapping&gt;
+&lt;defaultViewSheet&gt;&lt;/defaultViewSheet&gt;
+&lt;defaultEditSheet&gt;&lt;/defaultEditSheet&gt;
+&lt;defaultWeb&gt;&lt;/defaultWeb&gt;
+&lt;nameField&gt;&lt;/nameField&gt;
+&lt;validationScript&gt;&lt;/validationScript&gt;
+&lt;description&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;editor&gt;Wysiwyg&lt;/editor&gt;
+&lt;name&gt;description&lt;/name&gt;
+&lt;number&gt;2&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Description&lt;/prettyName&gt;
+&lt;rows&gt;5&lt;/rows&gt;
+&lt;size&gt;40&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.TextAreaClass&lt;/classType&gt;
+&lt;/description&gt;
+&lt;details&gt;
+&lt;customDisplay&gt;{{include reference="AppWithinMinutes.Content"/}}&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;details&lt;/name&gt;
+&lt;number&gt;11&lt;/number&gt;
+&lt;prettyName&gt;Details&lt;/prettyName&gt;
+&lt;script&gt;&lt;/script&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.ComputedFieldClass&lt;/classType&gt;
+&lt;/details&gt;
+&lt;developer&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;developer&lt;/name&gt;
+&lt;number&gt;8&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Developer&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/developer&gt;
+&lt;licence&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;licence&lt;/name&gt;
+&lt;number&gt;9&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Licence&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/licence&gt;
+&lt;mode&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;checkbox&lt;/displayType&gt;
+&lt;multiSelect&gt;1&lt;/multiSelect&gt;
+&lt;name&gt;mode&lt;/name&gt;
+&lt;number&gt;3&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Mode&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;sort&gt;none&lt;/sort&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;values&gt;view|edit&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/mode&gt;
+&lt;sourcecodeurl&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;sourcecodeurl&lt;/name&gt;
+&lt;number&gt;7&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Wrapper Source Code URL&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/sourcecodeurl&gt;
+&lt;type&gt;
+&lt;cache&gt;0&lt;/cache&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;displayType&gt;select&lt;/displayType&gt;
+&lt;multiSelect&gt;0&lt;/multiSelect&gt;
+&lt;name&gt;type&lt;/name&gt;
+&lt;number&gt;4&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Type&lt;/prettyName&gt;
+&lt;relationalStorage&gt;0&lt;/relationalStorage&gt;
+&lt;separator&gt; &lt;/separator&gt;
+&lt;separators&gt; ,|&lt;/separators&gt;
+&lt;size&gt;1&lt;/size&gt;
+&lt;sort&gt;none&lt;/sort&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;values&gt;drawing|business|office|other&lt;/values&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType&gt;
+&lt;/type&gt;
+&lt;url&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;url&lt;/name&gt;
+&lt;number&gt;10&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer URL&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/url&gt;
+&lt;viewername&gt;
+&lt;customDisplay&gt;{{include reference="AppWithinMinutes.Title"/}}&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;viewername&lt;/name&gt;
+&lt;number&gt;1&lt;/number&gt;
+&lt;prettyName&gt;Viewer Name&lt;/prettyName&gt;
+&lt;script&gt;&lt;/script&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.ComputedFieldClass&lt;/classType&gt;
+&lt;/viewername&gt;
+&lt;wrapperDeveloper&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;wrapperDeveloper&lt;/name&gt;
+&lt;number&gt;5&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Wrapper Developer&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/wrapperDeveloper&gt;
+&lt;wrapperLicence&gt;
+&lt;customDisplay&gt;&lt;/customDisplay&gt;
+&lt;disabled&gt;0&lt;/disabled&gt;
+&lt;name&gt;wrapperLicence&lt;/name&gt;
+&lt;number&gt;6&lt;/number&gt;
+&lt;picker&gt;0&lt;/picker&gt;
+&lt;prettyName&gt;Viewer Wrapper Licence&lt;/prettyName&gt;
+&lt;size&gt;30&lt;/size&gt;
+&lt;unmodifiable&gt;0&lt;/unmodifiable&gt;
+&lt;validationMessage&gt;&lt;/validationMessage&gt;
+&lt;validationRegExp&gt;&lt;/validationRegExp&gt;
+&lt;classType&gt;com.xpn.xwiki.objects.classes.StringClass&lt;/classType&gt;
+&lt;/wrapperLicence&gt;
+&lt;/class&gt;
+&lt;name&gt;Viewers.ViewersTemplate&lt;/name&gt;
+&lt;number&gt;0&lt;/number&gt;
+&lt;className&gt;Viewers.ViewersClass&lt;/className&gt;
+&lt;guid&gt;e6651dc5-b4f3-4d1d-a6ec-4808c52b452e&lt;/guid&gt;
+&lt;property&gt;
+&lt;description&gt;&lt;/description&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;developer&gt;&lt;/developer&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;licence&gt;&lt;/licence&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;mode/&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;sourcecodeurl&gt;&lt;/sourcecodeurl&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;type&gt;drawing&lt;/type&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;url&gt;&lt;/url&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;wrapperDeveloper&gt;&lt;/wrapperDeveloper&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;wrapperLicence&gt;&lt;/wrapperLicence&gt;
+&lt;/property&gt;
+&lt;/object&gt;
+&lt;content&gt;&lt;/content&gt;&lt;/xwikidoc&gt;
+@
+
+
+3.2
+log
+@Updated class property name
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380538251000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380538251000&lt;/contentUpdateDate&gt;
+&lt;version&gt;3.2&lt;/version&gt;
+d20 2
+a21 2
+&lt;comment&gt;Updated class property name&lt;/comment&gt;
+&lt;minorEdit&gt;true&lt;/minorEdit&gt;
+d202 6
+@
+
+
+3.1
+log
+@Update default values
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380537280000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380537280000&lt;/contentUpdateDate&gt;
+&lt;version&gt;3.1&lt;/version&gt;
+d20 2
+a21 2
+&lt;comment&gt;Update default values&lt;/comment&gt;
+&lt;minorEdit&gt;false&lt;/minorEdit&gt;
+d53 1
+a53 1
+&lt;number&gt;9&lt;/number&gt;
+d65 1
+a65 1
+&lt;number&gt;5&lt;/number&gt;
+d67 1
+a67 1
+&lt;prettyName&gt;Developer&lt;/prettyName&gt;
+d78 1
+a78 1
+&lt;number&gt;6&lt;/number&gt;
+d80 1
+a80 1
+&lt;prettyName&gt;Licence&lt;/prettyName&gt;
+d114 1
+a114 1
+&lt;prettyName&gt;Source Code URL&lt;/prettyName&gt;
+d146 1
+a146 1
+&lt;number&gt;8&lt;/number&gt;
+d148 1
+a148 1
+&lt;prettyName&gt;URL&lt;/prettyName&gt;
+d167 26
+a201 6
+&lt;developer&gt;&lt;/developer&gt;
+&lt;/property&gt;
+&lt;property&gt;
+&lt;licence&gt;&lt;/licence&gt;
+&lt;/property&gt;
+&lt;property&gt;
+d213 6
+@
+
+
+2.1
+log
+@Update default values
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380534812000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380534812000&lt;/contentUpdateDate&gt;
+&lt;version&gt;2.1&lt;/version&gt;
+d34 15
+d53 1
+a53 1
+&lt;number&gt;6&lt;/number&gt;
+d65 1
+a65 1
+&lt;number&gt;4&lt;/number&gt;
+d78 1
+a78 1
+&lt;number&gt;5&lt;/number&gt;
+d94 1
+a94 1
+&lt;number&gt;2&lt;/number&gt;
+d108 13
+d128 1
+a128 1
+&lt;number&gt;3&lt;/number&gt;
+d142 13
+d173 3
+d185 3
+d190 3
+@
+
+
+1.1
+log
+@Update default values
+@
+text
+@d14 3
+a16 3
+&lt;date&gt;1380534644000&lt;/date&gt;
+&lt;contentUpdateDate&gt;1380534644000&lt;/contentUpdateDate&gt;
+&lt;version&gt;1.1&lt;/version&gt;
+d38 1
+a38 1
+&lt;number&gt;5&lt;/number&gt;
+d50 1
+a50 1
+&lt;number&gt;3&lt;/number&gt;
+d63 1
+a63 1
+&lt;number&gt;4&lt;/number&gt;
+d72 21
+d100 1
+a100 1
+&lt;number&gt;2&lt;/number&gt;
+d138 3
+@
+</versions></xwikidoc>

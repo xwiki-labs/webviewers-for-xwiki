@@ -6,7 +6,7 @@
 #if("" == "$!as")
   #set ($as = $at.getFilename().replaceAll('^.*\.', ''))
 #end
-#set ($gadgets = $!xwiki.parseGroovyFromPage("WebViewers.Code").run($xcontext))
+#set ($gadgets = $!xwiki.parseGroovyFromPage("Viewers.Code").run($xcontext))
 #set ($jioDocName = $doc.getFullName().replaceAll("\.", "/"))
 ##
 #set ($jioAttach = { '_id': $jioDocName, '_attachment': $at.getFilename() })
@@ -30,7 +30,7 @@
   />
   {{/html}}
 
-  $xwiki.jsx.use("WebViewers.WebHome")##
+  $xwiki.jsx.use("Viewers.WebHome")##
 #else
   {{error}}No WebViewer found for viewing filetype ".$as"{{/error}}
 #end
