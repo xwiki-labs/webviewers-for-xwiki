@@ -7,6 +7,8 @@
         "type": "git"
     },
     "dependencies": {
-        "xwiki-tools": "~0.3.4"
+        "xwiki-tools": "~0.3.4",
+        "nthen": "~0.1.0",
+        "xmhell": "~0.1.2"
     }
 }
