@@ -7,8 +7,8 @@ To build it manually:
 
 To install the files directly to an XWiki installation, use:
 
-    ## The format is --post <username>:<password>@<hostname>[:<port>]/<preview path>/
-    ./do --post Admin:admin@192.168.1.1:8080/xwiki/bin/preview//
+    ## The format is --post <username>:<password>@<hostname>:<port>/<servlet>
+    ./do --post Admin:admin@192.168.1.1:8080/xwiki
 
 To generate a maven build:
 
