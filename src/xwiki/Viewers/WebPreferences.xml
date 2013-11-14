@@ -6,10 +6,10 @@
 <defaultLanguage></defaultLanguage>
 <translation>0</translation>
 <parent>xwiki:Viewers.WebHome</parent>
-<creator>XWiki.ludovic</creator>
-<author>XWiki.ludovic</author>
+<creator>xwiki:XWiki.Admin</creator>
+<author>xwiki:XWiki.Admin</author>
 <customClass></customClass>
-<contentAuthor>XWiki.ludovic</contentAuthor>
+<contentAuthor>xwiki:XWiki.Admin</contentAuthor>
 <creationDate>1380534744000</creationDate>
 <date>1380534744000</date>
 <contentUpdateDate>1380534744000</contentUpdateDate>
@@ -98,7 +98,7 @@
 <levels>admin</levels>
 </property>
 <property>
-<users>xwiki:XWiki.ludovic</users>
+<users>xwiki:xwiki:XWiki.Admin</users>
 </property>
 </object>
 <content></content>
@@ -132,10 +132,10 @@ text
 &lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
 &lt;translation&gt;0&lt;/translation&gt;
 &lt;parent&gt;xwiki:Viewers.WebHome&lt;/parent&gt;
-&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
-&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;creator&gt;xwiki:XWiki.Admin&lt;/creator&gt;
+&lt;author&gt;xwiki:XWiki.Admin&lt;/author&gt;
 &lt;customClass&gt;&lt;/customClass&gt;
-&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;contentAuthor&gt;xwiki:XWiki.Admin&lt;/contentAuthor&gt;
 &lt;creationDate&gt;1380534652000&lt;/creationDate&gt;
 &lt;date&gt;1380534744000&lt;/date&gt;
 &lt;contentUpdateDate&gt;1380534744000&lt;/contentUpdateDate&gt;
@@ -224,7 +224,7 @@ text
 &lt;levels&gt;admin&lt;/levels&gt;
 &lt;/property&gt;
 &lt;property&gt;
-&lt;users&gt;xwiki:XWiki.ludovic&lt;/users&gt;
+&lt;users&gt;xwiki:xwiki:XWiki.Admin&lt;/users&gt;
 &lt;/property&gt;
 &lt;/object&gt;
 &lt;content&gt;&lt;/content&gt;&lt;/xwikidoc&gt;

@@ -6,10 +6,10 @@
 <defaultLanguage></defaultLanguage>
 <translation>0</translation>
 <parent>WebHome</parent>
-<creator>XWiki.ludovic</creator>
-<author>XWiki.ludovic</author>
+<creator>xwiki:XWiki.Admin</creator>
+<author>xwiki:XWiki.Admin</author>
 <customClass></customClass>
-<contentAuthor>XWiki.ludovic</contentAuthor>
+<contentAuthor>xwiki:XWiki.Admin</contentAuthor>
 <creationDate>1380534745000</creationDate>
 <date>1380534745000</date>
 <contentUpdateDate>1380534745000</contentUpdateDate>
@@ -56,10 +56,10 @@ text
 &lt;defaultLanguage&gt;&lt;/defaultLanguage&gt;
 &lt;translation&gt;0&lt;/translation&gt;
 &lt;parent&gt;WebHome&lt;/parent&gt;
-&lt;creator&gt;XWiki.ludovic&lt;/creator&gt;
-&lt;author&gt;XWiki.ludovic&lt;/author&gt;
+&lt;creator&gt;xwiki:XWiki.Admin&lt;/creator&gt;
+&lt;author&gt;xwiki:XWiki.Admin&lt;/author&gt;
 &lt;customClass&gt;&lt;/customClass&gt;
-&lt;contentAuthor&gt;XWiki.ludovic&lt;/contentAuthor&gt;
+&lt;contentAuthor&gt;xwiki:XWiki.Admin&lt;/contentAuthor&gt;
 &lt;creationDate&gt;1380534745000&lt;/creationDate&gt;
 &lt;date&gt;1380534745000&lt;/date&gt;
 &lt;contentUpdateDate&gt;1380534745000&lt;/contentUpdateDate&gt;
