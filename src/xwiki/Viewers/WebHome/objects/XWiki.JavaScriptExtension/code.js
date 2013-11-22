@@ -10,7 +10,6 @@
     simplemodal_osx: "$doc.getAttachmentURL('simplemodal_osx.js')",
     xwikiEditGadget: "$doc.getAttachmentURL('xwikiEditGadget.js')",
     xwikiInlineView: "$doc.getAttachmentURL('xwikiInlineView.js')",
-    renderjs_jquery: "$doc.getAttachmentURL('renderjs_jquery.js')",
     // the ? is needed to keep require.js from adding a .js to the end.
     rGadgets: "$xwiki.getURL('Viewers.Code', 'jsx')?",
     rHooks: "$xwiki.getDocument('Viewers.Code').getAttachmentURL('xwiki-rHooks.js')",
@@ -22,8 +21,7 @@
     },
     paths: paths,
     shim: {
-      jiobase: ["md5"],
-      renderjs: ["renderjs_jquery", "$doc.getAttachmentURL('jschannel.js')"]
+      jiobase: ["md5"]
     }
   });
 
