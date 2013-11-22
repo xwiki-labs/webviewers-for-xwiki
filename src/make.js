@@ -3,7 +3,6 @@ var nThen = require('nthen');
 var Fs = require('fs');
 var Os = require('os');
 var XMHell = require('xmhell');
-var WikiMacroParameterClass = XWiki.model.classes.WikiMacroParameterClass;
 
 //---------------------- Create XWiki Package ----------------------//
 

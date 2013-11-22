@@ -28,6 +28,8 @@ class AttachEventListener implements EventListener
 
     Map actionMappings;
 
+    boolean firstRun;
+
     String getName() {
         return "WebViewerListener";
     }
@@ -42,8 +44,7 @@ class AttachEventListener implements EventListener
 
     void onEvent(Event event, Object source, Object data) {
         XWikiDocument doc = (XWikiDocument) source;
-        BaseObject obj = doc.getObject("Viewers.ViewersClass");
-        if (obj != null) {
+        if (doc.getObject("Viewers.ViewersClass") != null) {
             this.check(new Context(data), true);
         }
     }
@@ -80,9 +81,9 @@ class AttachEventListener implements EventListener
         return out;
     }
 
-    void check(xcontext, force) {
+    Map check(xcontext, force) {
         if (this.actionMappings != null) {
-            if (!force) { return; }
+            if (!force) { return this.actionMappings; }
         }
         def xc = xcontext.getContext();
         def xwiki = new XWiki(xc.getWiki(), xc);
@@ -90,6 +91,8 @@ class AttachEventListener implements EventListener
                                         + "obj.className = 'Viewers.ViewersClass' "
                                         + "and obj.name = doc.fullName");
         def am = new HashMap();
+        // workaround for http://jira.xwiki.org/browse/XWIKI-9718
+        boolean noPersist = false;
         for (Object name : names) {
             def doc = xwiki.getDocument(name);
             for (Object o : doc.getAttachmentList()) {
@@ -98,17 +101,26 @@ class AttachEventListener implements EventListener
                     doZip(xcontext, doc, o.getFilename(), am);
                 //} catch (e) { out += e; }
             }
+            if (doc.getAttachmentList().size() == 0) {
+                noPersist = true;
+            }
         }
-        this.actionMappings = Collections.unmodifiableMap(am);
+        if (!noPersist) {
+            this.actionMappings = Collections.unmodifiableMap(am);
+        } else {
+            this.actionMappings = null;
+        }
 
-        if (!force) {
+        if (this.firstRun) {
+            this.firstRun = false;
             Utils.getComponent(ObservationManager.class).removeListener(getName());
             Utils.getComponent(ObservationManager.class).addListener(AttachEventListener.INSTANCE);
         }
+
+        return Collections.unmodifiableMap(am);
     }
 }
 
 public Map run(xcontext) {
-    AttachEventListener.INSTANCE.check(xcontext, false);
-    return AttachEventListener.INSTANCE.actionMappings;
+    return AttachEventListener.INSTANCE.check(xcontext, false);
 }
