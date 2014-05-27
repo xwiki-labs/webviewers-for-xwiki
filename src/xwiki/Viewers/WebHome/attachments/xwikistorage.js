@@ -74,6 +74,14 @@
     return true;
   }
 
+  function detectIsPathBasedMultiwiki(xwikiurl) {
+    var loc = window.location.href;
+    if (loc.indexOf(xwikiurl + '/wiki/') === 0) { return true; }
+    if (loc.indexOf(xwikiurl + '/bin/') === 0) { return false; }
+    // warn the user that we're unusure?
+    return false;
+  }
+
   /**
    * The JIO XWikiStorage extension
    *
@@ -95,6 +103,9 @@
 
     // Which URL to load for getting the Anti-CSRF form token, used for testing.
     priv.formTokenPath = spec.formTokenPath || priv.xwikiurl;
+
+    priv.pathBasedMultiwiki = (spec.pathBasedMultiwiki !== undefined)
+      ? spec.pathBasedMultiwiki : detectIsPathBasedMultiwiki(priv.xwikiurl);
 
     /**
      * Get the Space and Page components of a documkent ID.
@@ -173,14 +184,14 @@
     };
 
     priv.getURL = function (action, space, page) {
-      return [
-        priv.xwikiurl,
-        'wiki',
-        priv.wiki,
-        action,
-        space,
-        page
-      ].join('/');
+      var out = [priv.xwikiurl];
+      if (!priv.pathBasedMultiwiki) {
+        out.push('bin');
+      } else {
+        out.push('wiki', priv.wiki);
+      }
+      out.push(action, space, page);
+      return out.join('/');
     };
 
     /*
