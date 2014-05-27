@@ -15,17 +15,33 @@ define(function(jio) {
           e.stop();
           var key  = {
             _id: XWiki.currentSpace + '/' + XWiki.currentPage,
-            _attachment: elem.getAttribute('href').replace(/.*\//, ''),
+            _attachment: unescape(elem.getAttribute('href').replace(/.*\//, '')),
           };
-          require(['jio'], function(jio) {
-            startGadget(actions[action], action,
-                        function(cb) {
-                          jio.getAttachment(key, cb);
-                        },
-                        function(data, cb) {
-                          key._data = data;
-                          jio.putAttachment(key, cb);
-                        });
+          require(['jio', 'xwikiJio'], function(jIO) {
+            var jio = jIO.createJIO({ type: 'xwiki' });
+            startGadget(
+              actions[action],
+              action,
+              function(cb) {
+                jio.getAttachment(key).always(function (ret) {
+                  if (ret.status === 200) {
+                    cb(undefined, ret.data);
+                  } else {
+                    cb(ret);
+                  }
+                });
+              },
+              function(data, cb) {
+                key._data = data;
+                jio.putAttachment(key).always(function (ret) {
+                  if (ret.status === 204) {
+                    cb(undefined);
+                  } else {
+                    cb(ret);
+                  }
+                });
+              }
+            );
           });
         });
       })(action);

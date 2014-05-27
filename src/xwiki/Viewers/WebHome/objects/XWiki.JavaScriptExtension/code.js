@@ -1,9 +1,10 @@
 ;(function() {
   "use strict";
   var paths = {
-    md5: "$doc.getAttachmentURL('md5.js')",
-    jiobase: "$doc.getAttachmentURL('jio.js')",
-    jio: "$doc.getAttachmentURL('xwikistorage.js')",
+    sha256: "$doc.getAttachmentURL('sha256.amd.js')",
+    rsvp: "$doc.getAttachmentURL('rsvp-custom.amd.js')",
+    jio: "$doc.getAttachmentURL('jio.js')",
+    xwikiJio: "$doc.getAttachmentURL('xwikistorage.js')",
     renderjs: "$doc.getAttachmentURL('renderjs.js')",
     typeconverter: "$doc.getAttachmentURL('typeconverter.js')",
     simplemodal: "$doc.getAttachmentURL('simplemodal.js')",
@@ -15,15 +16,7 @@
     rHooks: "$xwiki.getDocument('Viewers.Code').getAttachmentURL('xwiki-rHooks.js')",
   };
   for (var path in paths) { paths[path] = paths[path].replace(/\.js$/, ''); }
-  require.config({
-    config: {
-      jio: { useBlobs: true },
-    },
-    paths: paths,
-    shim: {
-      jiobase: ["md5"]
-    }
-  });
+  require.config({ paths: paths });
 
   require(['renderjs'], function() {
     rJS(window).ready(function() {

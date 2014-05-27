@@ -1,30 +1,33 @@
 var Fs = require('fs');
 var nThen = require('nthen');
+var Os = require('os');
 
-dir = "src/hooks/";
-var hooks = '';
-hooks += "define(function() {\n";
-hooks += "  var array = [];\n";
-hooks += "  var complete;\n";
-hooks += "  var workers = 0;\n";
-hooks += "  var done = function() { if (!workers) { return; } if (--workers) { return; } complete(array); };\n";
-hooks += "  var define = function(r, f) {\n";
-hooks += "    if (typeof(r) === 'function') {\n";
-hooks += "      array.push(r());\n";
-hooks += "    } else {\n";
-hooks += "      workers++;\n";
-hooks += "      require(r, function() {\n";
-hooks += "        array.push(f.apply(this, Array.prototype.slice.call(arguments)));\n";
-hooks += "        done();\n";
-hooks += "      });\n";
-hooks += "    }\n";
-hooks += "  };\n";
+var DIR = "src/hooks/";
+var hooks = [
+  "define(function() {",
+  "  var array = [];",
+  "  var complete;",
+  "  var workers = 0;",
+  "  var done = function() { if (!workers) { return; } if (--workers) { return; } complete(array); };",
+  "  var define = function(r, f) {",
+  "    if (typeof(r) === 'function') {",
+  "      array.push(r());",
+  "    } else {",
+  "      workers++;",
+  "      require(r, function() {",
+  "        array.push(f.apply(this, Array.prototype.slice.call(arguments)));",
+  "        done();",
+  "      });",
+  "    }",
+  "  };"
+].join('\n');
+
 
 nThen(function(waitFor) {
-  Fs.readdir(dir, waitFor(function (err, names) {
+  Fs.readdir(DIR, waitFor(function (err, names) {
       if (err) { throw err; }
       names.forEach(function(file) {
-          Fs.readFile(dir + '/' + file, waitFor(function(err, ret) {
+          Fs.readFile(DIR + '/' + file, waitFor(function(err, ret) {
               if (err) { throw err; }
               hooks += ret;
           }));

@@ -1,7 +1,9 @@
-define(['jquery', 'typeconverter', 'jio'], function($, Converter, jio) {
+define(['jquery', 'typeconverter', 'jio', 'xwikiJio'], function($, Converter, jIO) {
   var defaultHelp = function(gadgetName) {
     return "No help is available for gadget [" + gadgetName + "]";
   };
+
+  var jio = jIO.createJIO({ type: 'xwiki' });
 
   return {
     tryGadget: function(root, gadgetElement) {
@@ -22,23 +24,35 @@ define(['jquery', 'typeconverter', 'jio'], function($, Converter, jio) {
       }
       $(elem).css({width:props.width, height:props.height});
 
-      var getGetData = function(jio, jioAttach) {
+      var getGetData = function (jio, jioAttach) {
         return function(cb) {
-          jio.getAttachment(jioAttach, cb);
+          jio.getAttachment(jioAttach).always(function (ret) {
+            if (ret.status !== 200) {
+              cb(ret);
+            } else {
+              cb(undefined, ret.data);
+            }
+          });
         };
       };
-      var getPutData = function(jio, jioAttach) {
+      var getPutData = function (jio, jioAttach) {
         return function(dat, cb) {
           var att = { _id:jioAttach._id, _attachment:jioAttach._attachment };
           att._data = dat;
-          jio.putAttachment(att, cb);
+          jio.putAttachment(att).always(function (ret) {
+            if (ret.status === 204) {
+              cb();
+            } else {
+              cb(JSON.stringify(ret, null, '  '));
+            }
+          });
         };
       };
 
       window.jQuery = $;
 
       if (props.actions.edit && XWiki.hasEdit) {
-        require(['xwikiEditGadget', 'jio'], function(xeg, jio) {
+        require(['xwikiEditGadget'], function(xeg) {
           xeg.injectEditButton(root,
                                gadgetElement,
                                props.actions,

@@ -2,8 +2,16 @@
 
 To build it manually:
 
-    npm install
+    # first make sure you have an up-to-date version of node-xwikimodel
+    git clone git://github.com/xwiki-contrib/node-xwikimodel.git
+    cd node-xwikimodel
+    npm install -g
+
+
+    # then run the builder
     ./do
+
+    # and import the resulting XAR file.
 
 To install the files directly to an XWiki installation, use:
 
