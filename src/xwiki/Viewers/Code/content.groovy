@@ -97,9 +97,9 @@ class AttachEventListener implements EventListener
             def doc = xwiki.getDocument(name);
             for (Object o : doc.getAttachmentList()) {
                 if (!o.getFilename().endsWith(".zip")) { continue; }
-                //try {
+                try {
                     doZip(xcontext, doc, o.getFilename(), am);
-                //} catch (e) { out += e; }
+                } catch (e) { }
             }
             if (doc.getAttachmentList().size() == 0) {
                 noPersist = true;
