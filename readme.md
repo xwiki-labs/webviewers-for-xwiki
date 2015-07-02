@@ -1,5 +1,7 @@
 # WebViewers for XWiki
 
+[![XWiki labs logo](https://raw.githubusercontent.com/xwiki-labs/xwiki-labs-logo/master/projects/xwikilabs/xlabs-project.png "XWiki labs")](https://labs.xwiki.com/xwiki/bin/view/Main/WebHome)
+
 To build it manually:
 
     # first make sure you have an up-to-date version of node-xwikimodel
